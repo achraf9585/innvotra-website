@@ -15,17 +15,17 @@ background-repeat: no-repeat;  background-position: 25% 80%;;
 
 <div class="bg-gray-900 absolute top-0 h-full w-full  opacity-20"></div>
     
-    <div class="newsletter-content flex items-center" >
+    <div class="newsletter-content flex flex-col md:flex-row items-center relative z-10 text-white px-6 md:px-12" >
       
-      <div class="textWrap w-1/2 text-left px-12">
-          <h2 class="font-semibold text-5xl">Subscribe to our newsletter</h2>
-          <p class="text-xl font-thin py-2">Follow all our news and novelties</p>
+      <div class="textWrap w-full md:w-1/2 text-left mb-8 md:mb-0">
+          <h2 class="font-semibold text-3xl md:text-5xl ">Subscribe to our newsletter</h2>
+          <p class="text-lg md:text-xl font-thin py-2">Follow all our news and novelties</p>
 
       </div>
 
       <div class="paragraphWrapper w-1/2">
           <form on:submit|preventDefault={handleSubmit}>
-            <div class="">
+            <div class="inputsWrapper bg-white w-full md:w-3/4 rounded-md p-1 flex flex-col sm:flex-row justify-center items-center">
             
                 <div class="inputsWrapper bg-white w-3/4 rounded-md p-1 flex flex-row justify-center align-center">
 
@@ -46,24 +46,43 @@ background-repeat: no-repeat;  background-position: 25% 80%;;
   </section>
   
   <style>
- .newsletter-section {
-    position: relative;
-    overflow: hidden; /* Ensure content doesn't overflow */
-    width: 70%;
-    height: 100%; /* Adjust height as needed */
-  }
 
-  .newsletter-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #031235B2; /* Dark overlay */
-    opacity: 0.7; /* 70% opacity */
-    z-index: 1; /* Ensure the overlay is above the background but below the content */
-  }
+.newsletter-section {
+
+position: relative;
+
+overflow: hidden;
+
+width: 90%;
+
+max-width: 1200px;
+
+height: auto;
+
+}
+
+
+.newsletter-section::before {
+
+content: '';
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+height: 100%;
+
+background: #031235B2;
+
+opacity: 0.7;
+
+z-index: 1;
+
+}
   
   .newsletter-content {
     position: relative;
@@ -72,6 +91,16 @@ background-repeat: no-repeat;  background-position: 25% 80%;;
     text-align: center;
     padding: 40px 20px;
   }
+
+  @media (min-width: 768px) {
+
+.newsletter-content {
+
+    text-align: left;
+
+}
+
+}
   
     /* h2 {
       font-size: 2rem;
