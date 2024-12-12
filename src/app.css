@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Almarena Neue";
+  src: url("/fonts/AlmarenaNeue-Regular.woff2") format("woff2"),
+    url("/fonts/AlmarenaNeue-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Almarena Neue";
+  src: url("/fonts/AlmarenaNeue-Bold.woff2") format("woff2"),
+    url("/fonts/AlmarenaNeue-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
