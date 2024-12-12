@@ -43,13 +43,20 @@
 
   <!-- Content -->
   <div class="relative h-full flex items-end">
-    <div class="container mx-auto px-6 flex justify-between items-center w-full mb-10">
-      <h1 class="text-white text-5xl md:text-5xl font-sans font-sans-600">
+    <div
+      class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center w-full mb-10 space-y-4 md:space-y-0"
+    >
+      <h1
+        class="text-white text-4xl md:text-5xl font-sans font-sans-600 w-full md:w-auto text-center md:text-left"
+      >
         We Think, Plan and Execute
       </h1>
-      <button class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-8 py-3 font-sans font-sans-600 rounded-xl text-lg hover:bg-blue-700 transition-colors">
+      <button
+        class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-8 py-3 font-sans font-sans-600 rounded-xl text-lg hover:bg-blue-700 transition-colors w-full md:w-auto"
+      >
         Get in Touch
       </button>
     </div>
   </div>
 </section>
+
