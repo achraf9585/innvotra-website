@@ -27,7 +27,7 @@ background-repeat: no-repeat;  background-position: 25% 80%;;
           <form on:submit|preventDefault={handleSubmit}>
             <div class="inputsWrapper bg-white w-full md:w-3/4 rounded-md p-1 flex flex-col sm:flex-row justify-center items-center">
             
-                <div class="inputsWrapper bg-white w-3/4 rounded-md p-1 flex flex-row justify-center align-center">
+                <div class="inputsWrapper text-black bg-white w-3/4 rounded-md p-1 flex flex-row justify-center align-center">
 
                     <input
                     type="email"
