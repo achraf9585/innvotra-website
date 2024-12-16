@@ -1,22 +1,18 @@
 <script>
   import { onMount } from 'svelte';
 
-  let videoElement;
-  let videoSrc = '/videos/hero.mp4'; // Default to desktop video
+  let videoSrc = 'https://player.vimeo.com/video/1039608835?autoplay=1&muted=1&loop=1&background=1';
 
-  // Check the device type and update the video source
   function updateVideoSrc() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    videoSrc = isMobile ? '/videos/hero_mobile.mp4' : '/videos/hero.mp4';
+    videoSrc = isMobile
+      ? 'https://player.vimeo.com/video/1039608809?autoplay=1&muted=1&loop=1&background=1'
+      : 'https://player.vimeo.com/video/1039608835?autoplay=1&muted=1&loop=1&background=1';
   }
 
   onMount(() => {
     updateVideoSrc(); // Set the initial video source
     window.addEventListener('resize', updateVideoSrc); // Update on window resize
-
-    if (videoElement) {
-      videoElement.play();
-    }
 
     return () => {
       window.removeEventListener('resize', updateVideoSrc); // Clean up the event listener
@@ -25,18 +21,14 @@
 </script>
 
 <section class="relative h-screen w-full overflow-hidden">
-  <!-- Video Background -->
-  <video
-    bind:this={videoElement}
-    class="absolute top-0 left-0 w-full h-full object-cover"
-    autoplay
-    muted
-    loop
-    playsinline
-  >
-    <source src={videoSrc} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <!-- Vimeo Video Background -->
+  <iframe
+    src={videoSrc}
+    class="absolute top-0 left-0 w-full h-full"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -59,4 +51,3 @@
     </div>
   </div>
 </section>
-
