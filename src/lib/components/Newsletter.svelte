@@ -21,7 +21,7 @@
       <!-- Title and Description -->
       <div class="textWrap w-full text-center md:text-left">
           <h2 class="font-semibold text-3xl md:text-5xl">Subscribe to our newsletter</h2>
-          <p class="text-lg md:text-xl font-thin py-2">Follow all our news and novelties</p>
+          <p class="text-lg md:text-xl font-thin py-2">Follow all our news </p>
       </div>
 
       <!-- Form -->

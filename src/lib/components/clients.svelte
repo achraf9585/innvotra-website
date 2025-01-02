@@ -40,7 +40,7 @@
             <img
               src={partner.logo}
               alt={partner.alt}
-              class="w-full h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              class="w-full h-auto object-contain filter  transition-all duration-300"
             />
           </div>
         {/each}

@@ -3,7 +3,7 @@
   
     const products = [
       {
-        title: 'Swlef - Chat With Your Data',
+        title: 'Insider - Chat With Your Data',
         description: 'Get a significant advancement in making data more accessible and understandable. We enable users to engage with their datasets in a conversational way, leading to improved insights and decision-making processes. Interact with your enterprise datasets through our conversational interfaces without technical expertise. Simply, ask questions about your data and receive insights in a conversational and cognitive manner, and user-friendly. Using NLP and AI via user interface that enables users to query and analyze datasets through conversational interactions.',
         icon: '/icons/safe.png'
       },

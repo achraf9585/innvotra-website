@@ -12,7 +12,7 @@
       
       <div class="header-right">
         <p class="contact-text">Want to get in touch?</p>
-        <a href="/contact" class="contact-button bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD]">Contact Us</a>
+        <a href="#" class="contact-button bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] ">Contact Us</a>
       </div>
     </div>
   </header>
