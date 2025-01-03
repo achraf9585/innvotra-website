@@ -33,6 +33,11 @@
         description: 'We develop business-oriented XR experiences that revolutionize the way you engage with clients and stakeholders, offering immersive and interactive solutions.',
         icon: '/icons/social-media.png'
       },
+      {
+        title: 'Design Studio',
+        description: 'Design Studios offer comprehensive services, including the design and implementation of immersive experiences, user interfaces (UI), and user experiences (UX), as well as building design systems and launching digital products with a focus on governing the use of UI design systems and developing digital products. Services also include the design and re-engineering of services, the development of stunning audiovisual content, and creating integrated content that supports immersive experiences using cutting-edge technologies.',
+        icon: '/icons/social-media.png'
+      }
 
     ];
   </script>
