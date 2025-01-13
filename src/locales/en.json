@@ -1,4 +1,9 @@
 {
+  "header_home": "Home",
+  "header_aboutUs": "About Us",
+  "header_products": "Products",
+  "header_services": "Services",
+  "header_contactUs": "Contact Us",
   "hero_text": "We Think, Plan and Execute",
   "hero_button": "Get in touch",
   "whoweare_title": "Who We Are",

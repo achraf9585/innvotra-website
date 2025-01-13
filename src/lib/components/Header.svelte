@@ -1,5 +1,7 @@
 <script>
-  import { locale } from "svelte-i18n";
+  import { locale , t} from "svelte-i18n";
+  import { onMount } from "svelte";
+
   let isMenuOpen = false;
   let isLanguageDropdownOpen = false;
 
@@ -13,17 +15,24 @@
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
   };
+  // Update currentLocale when $locale changes
+  $: currentLocale = $locale;
+
+    // Ensure currentLocale gets the correct value on component mount
+    onMount(() => {
+    currentLocale = $locale; // Fetch the current locale
+  });
 
   const toggleLanguageDropdown = () => {
     isLanguageDropdownOpen = !isLanguageDropdownOpen;
   };
 
   const menuItems = [
-    { text: 'Home', href: '/' },
-    { text: 'About Us', href: '#about' },
-    { text: 'Products', href: '#products' },
-    { text: 'Services', href: '#services' },
-    { text: 'Contact Us', href: '#contactUs' },
+    { text: 'Home', textAr: 'الصفحة الرئيسية',  href: '/' },
+    { text: 'About Us',textAr:'معلومات عنا', href: '#about' },
+    { text: 'Products',textAr:'شركاؤنا و عملائنا', href: '#products' },
+    { text: 'Services', textAr:'خدماتنا',href: '#services' },
+    { text: 'Contact Us', textAr:'اتصل بنا',href: '#contactUs' },
   ];
 
   function switchLanguage(lang) {
@@ -50,7 +59,9 @@
             href={item.href}
             class="text-white hover:text-blue-400 transition-colors font-sans font-sans-600 leading-sans-24 text-[16px]"
           >
-            {item.text}
+
+          {currentLocale === 'ar' ? item.textAr : item.text}
+
           </a>
         {/each}
       </div>

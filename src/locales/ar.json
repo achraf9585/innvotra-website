@@ -1,4 +1,9 @@
 {
+  "header_home": "الصفحة الرئيسية",
+  "header_aboutUs": "معلومات عنا",
+  "header_products": "شركاؤنا و عملائنا",
+  "header_services": "خدماتنا",
+  "header_contactUs": "اتصل بنا",
   "hero_text": "نفكر ونخطط وننفذ",
   "hero_button": "تواصل معنا",
   "whoweare_title": "من نحن!",
