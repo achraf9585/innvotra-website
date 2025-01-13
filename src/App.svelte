@@ -14,6 +14,13 @@ import Header from './lib/components/Header.svelte';
   import Partners from './lib/components/partners.svelte';
   import OurProducts from './lib/components/products/OurProducts.svelte';
   import WhoWeAre from './lib/components/WhoWeAre.svelte';
+
+  import { locale } from "svelte-i18n";
+
+locale.subscribe((lang) => {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+});
 </script>
 
 <main>

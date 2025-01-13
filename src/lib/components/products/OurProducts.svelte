@@ -1,5 +1,6 @@
 <script>
-  
+    import {   t } from "svelte-i18n";
+
     import ProductCard from './ProductCard.svelte';
   
     const products = [
@@ -53,7 +54,7 @@
   <section class="py-20 bg-white" id="products">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl md:text-5xl font-bold text-navy-900 text-center mb-16 font-sans">
-        Our Products
+        {$t('products_title')}    
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each products as product}
