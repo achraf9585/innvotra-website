@@ -11,9 +11,9 @@
   
   <section class="hero ">
     <div class="content">
-      <h1>Innovate with us</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-navy-900 mb-6">Innovate with us</h1>
       <p>Tell us about your requirements and our team will be eager to know more and help you achieve your goals.</p>
-      <button class="button bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD]"> Tell us about your needs </button> 
+      <button class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-12 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"> Tell us about your needs </button> 
     </div>
     <div class="image-container">
       <img 

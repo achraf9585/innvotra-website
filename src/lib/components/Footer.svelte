@@ -24,7 +24,7 @@
       <div class="footer-section">
         <h3>Products</h3>
         <ul>
-          <li><a href="/chat">Safer - Chat With Your Data</a></li>
+          <li><a href="/chat">Insider - Chat With Your Data</a></li>
           <li><a href="/agent">Virtual Agent</a></li>
           <li><a href="/center">Metaservice Center</a></li>
           <li><a href="/chain">DocChain - Digital Notarization</a></li>
@@ -36,12 +36,14 @@
       <div class="footer-section">
         <h3>Services</h3>
         <ul>
-          <li><a href="/innovation">Digital Innovation</a></li>
+          <li><a href="/#">Digital Innovation</a></li>
           <li><a href="/experience">Customer Experience</a></li>
-          <li><a href="/transformation">Digital Transformation</a></li>
-          <li><a href="/insights">Data And Business Insight</a></li>
-          <li><a href="/technologies">Emerging Technologies</a></li>
-          <li><a href="/marketing">Digital Marketing & Immersive Experience</a></li>
+          <li><a href="/#">Digital Transformation</a></li>
+          <li><a href="/#">Data And Business Insight</a></li>
+          <li><a href="/#">Emerging Technologies</a></li>
+          <li><a href="/#">   Design Studio & Immersive Experience</a></li>
+
+       
         </ul>
       </div>
   

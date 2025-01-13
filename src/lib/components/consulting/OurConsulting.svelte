@@ -1,6 +1,7 @@
 <script>
+    import { t } from "svelte-i18n";
+
   import ConsultingCard from './ConsultingCard.svelte';
-    import ProductCard from './ConsultingCard.svelte';
   
     const products = [
       {
@@ -29,28 +30,24 @@
         icon: '/icons/innovation.png'
       },
       {
-        title: 'Digital Marketing & Immersive Experience',
-        description: 'We develop business-oriented XR experiences that revolutionize the way you engage with clients and stakeholders, offering immersive and interactive solutions.',
+        title: 'Design Studio & Immersive Experience',
+        description: 'We develop immersive XR experiences that revolutionize engagement with clients and stakeholders, blending design and technology to create stunning audiovisual and interactive solutions.Our services include user interface (UI) and experience (UX) design, the development of digital products, and the re-engineering of services. We specialize in governing design systems and crafting integrated content, utilizing cutting-edge technologies to deliver impactful and engaging experiences.',
         icon: '/icons/social-media.png'
       },
-      {
-        title: 'Design Studio',
-        description: 'Design Studios offer comprehensive services, including the design and implementation of immersive experiences, user interfaces (UI), and user experiences (UX), as well as building design systems and launching digital products with a focus on governing the use of UI design systems and developing digital products. Services also include the design and re-engineering of services, the development of stunning audiovisual content, and creating integrated content that supports immersive experiences using cutting-edge technologies.',
-        icon: '/icons/social-media.png'
-      }
+  
 
     ];
   </script>
   
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white" id="services">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
-              <span class="text-gray-400">We deliver our differentiating</span>
+              <span class="text-gray-400">      {$t('service1_text')}              </span>
               <br />
-              <span class="text-navy-900">consulting services & emerging technology</span>
+              <span class="text-navy-900">  {$t('service2_text')}   </span>
               <br />
-              <span class="text-gray-400">based solutions</span>
+              <span class="text-gray-400">  {$t('service3_text')}   </span>
             </h2>
           </div>
 

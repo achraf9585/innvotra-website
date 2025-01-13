@@ -16,3 +16,17 @@
   font-weight: 700;
   font-style: normal;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="ltr"] {
+  text-align: left;
+  direction: ltr;
+}

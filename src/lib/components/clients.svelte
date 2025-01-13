@@ -1,4 +1,6 @@
 <script>
+    import  Carousel  from 'svelte-carousel'
+
     const partners = [
       {
         name: "OvalEdge",
@@ -33,10 +35,20 @@
       <h2 class="text-center text-4xl md:text-5xl font-bold text-[#0a1f44] mb-16">
         Our Clients
       </h2>
+
+      <Carousel
+      autoplay
+      autoplayDuration={3000}
+      pauseOnFocus
+      arrows={true}
+      dots={false}
+      swiping={true}
+      particlesToShow={5}
+      particlesToScroll={1}
+    >
       
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 items-center justify-items-center">
         {#each partners as partner}
-          <div class="w-full max-w-[200px] flex items-center justify-center p-4">
+          <div class="w-full max-w-[500px] flex items-center justify-center p-4">
             <img
               src={partner.logo}
               alt={partner.alt}
@@ -44,8 +56,8 @@
             />
           </div>
         {/each}
+      </Carousel>
       </div>
-    </div>
   </section>
   
   <style>

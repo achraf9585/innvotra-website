@@ -1,4 +1,7 @@
 <script>
+  import "./i18n";
+  import { _, isLoading } from 'svelte-i18n';
+
   import Clients from './lib/components/clients.svelte';
 import OurConsulting from './lib/components/consulting/OurConsulting.svelte';
   import Differentiators from './lib/components/differentiators/Differentiators.svelte';
@@ -14,6 +17,10 @@ import Header from './lib/components/Header.svelte';
 </script>
 
 <main>
+  {#if $isLoading}
+    <p>Loading...</p>
+    {:else}
+
   <Header />
   <Hero />
   <WhoWeAre />
@@ -26,6 +33,7 @@ import Header from './lib/components/Header.svelte';
   <Clients />
   <Newsletter />
   <Footer />
+  {/if}
 </main>
 
 <style>

@@ -1,17 +1,36 @@
 <script>
+  import { locale } from "svelte-i18n";
   let isMenuOpen = false;
-  
+  let isLanguageDropdownOpen = false;
+
+  const languages = [
+    { code: 'en', text: 'English', flag: '/images/usa-flag.png' },
+    { code: 'ar', text: 'العربية', flag: '/images/saudi-flag.png' },
+  ];
+
+  let currentLanguage = languages[0]; // Default to English
+
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
   };
 
+  const toggleLanguageDropdown = () => {
+    isLanguageDropdownOpen = !isLanguageDropdownOpen;
+  };
+
   const menuItems = [
     { text: 'Home', href: '/' },
-    { text: 'About Us', href: '/about' },
-    { text: 'Products', href: '/products' },
-    { text: 'Services', href: '/services' },
-    { text: 'Contact Us', href: '/contact' }
+    { text: 'About Us', href: '#about' },
+    { text: 'Products', href: '#products' },
+    { text: 'Services', href: '#services' },
+    { text: 'Contact Us', href: '#contactUs' },
   ];
+
+  function switchLanguage(lang) {
+    currentLanguage = languages.find(language => language.code === lang);
+    locale.set(lang);
+    isLanguageDropdownOpen = false; // Close dropdown after selection
+  }
 </script>
 
 <header class="fixed w-full z-50 bg-transparent">
@@ -20,7 +39,7 @@
       <!-- Logo -->
       <div class="flex items-start">
         <a href="/" class="text-white text-2xl font-bold">
-         <img src="/images/logo.png" alt="Logo" class="w-auto h-12" />
+          <img src="/images/logo.png" alt="Logo" class="w-auto h-12" />
         </a>
       </div>
 
@@ -29,18 +48,49 @@
         {#each menuItems as item}
           <a
             href={item.href}
-            class="text-white hover:text-blue-400 transition-colors font-sans  font-sans-600 leading-sans-24 text-[16px]"
+            class="text-white hover:text-blue-400 transition-colors font-sans font-sans-600 leading-sans-24 text-[16px]"
           >
             {item.text}
           </a>
         {/each}
       </div>
 
-      <!-- Arabic Button -->
-      <div class="hidden md:flex">
-        <button class="bg-blue-600 text-white px-6 py-2 rounded-full font-sans hover:bg-blue-700 transition-colors">
-          العربية
+      <!-- Language Switcher Dropdown -->
+      <div class="hidden md:flex relative">
+        <button
+          class="bg-blue-600 text-white px-6 py-2 rounded-full font-sans hover:bg-blue-700 transition-colors flex items-center"
+          on:click={toggleLanguageDropdown}
+        >
+          <img src={currentLanguage.flag} alt={currentLanguage.text} class="w-5 h-3 mr-2" />
+          {currentLanguage.text}
+          <svg
+            class="w-4 h-4 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </button>
+
+        {#if isLanguageDropdownOpen}
+          <div class="absolute top-full mt-2 right-0 bg-white shadow-lg rounded-md">
+            {#each languages as language}
+              <button
+                class="flex items-center w-full px-4 py-2 text-sm text-black hover:bg-gray-200"
+                on:click={() => switchLanguage(language.code)}
+              >
+                <img src={language.flag} alt={language.text} class="w-5 h-3 mr-2" />
+                {language.text}
+              </button>
+            {/each}
+          </div>
+        {/if}
       </div>
 
       <!-- Mobile Menu Button -->
@@ -56,9 +106,9 @@
           viewBox="0 0 24 24"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
@@ -67,7 +117,7 @@
 
     <!-- Mobile Menu -->
     {#if isMenuOpen}
-      <div class="md:hidden absolute top-full left-0 right-0  bg-black bg-opacity- py-4 font-sans">
+      <div class="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-90 py-4 font-sans">
         {#each menuItems as item}
           <a
             href={item.href}
@@ -76,7 +126,10 @@
             {item.text}
           </a>
         {/each}
-        <button class="block w-full text-left text-white hover:text-blue-400 px-6 py-2 font-sans">
+        <button
+          class="block w-full text-left text-white hover:text-blue-400 px-6 py-2 font-sans"
+          on:click={() => switchLanguage('ar')}
+        >
           العربية
         </button>
       </div>
