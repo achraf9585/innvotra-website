@@ -1,4 +1,5 @@
 <script>
+    import { t } from "svelte-i18n";
     const currentYear = new Date().getFullYear();
   </script>
   
@@ -11,8 +12,8 @@
       </div>
       
       <div class="header-right">
-        <p class="contact-text">Want to get in touch?</p>
-        <a href="#" class="contact-button bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] ">Contact Us</a>
+        <p class="contact-text">{$t('contact_title')}</p>
+        <a href="#" class="contact-button bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] ">{$t('contact_button')}</a>
       </div>
     </div>
   </header>
@@ -22,7 +23,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Products</h3>
+        <h3> {$t('footer_product_title')}</h3>
         <ul>
           <li><a href="/chat">Insider - Chat With Your Data</a></li>
           <li><a href="/agent">Virtual Agent</a></li>
@@ -34,35 +35,35 @@
       </div>
   
       <div class="footer-section">
-        <h3>Services</h3>
-        <ul>
-          <li><a href="/#">Digital Innovation</a></li>
-          <li><a href="/experience">Customer Experience</a></li>
-          <li><a href="/#">Digital Transformation</a></li>
-          <li><a href="/#">Data And Business Insight</a></li>
-          <li><a href="/#">Emerging Technologies</a></li>
-          <li><a href="/#">   Design Studio & Immersive Experience</a></li>
+        <h3>{$t('footer_service_title')}</h3>
+        <ul> 
+          <li><a href="/#">{$t('footer_service_1')}</a></li>
+          <li><a href="/#"> {$t('footer_service_2')}</a></li>
+          <li><a href="/#"> {$t('footer_service_3')}</a></li>
+          <li><a href="/#"> {$t('footer_service_4')}</a></li>
+          <li><a href="/#"> {$t('footer_service_5')}</a></li>
+          <li><a href="/#">   {$t('footer_service_6')}</a></li>
 
        
         </ul>
       </div>
   
       <div class="footer-section">
-        <h3>Contact Us</h3>
+        <h3>{$t('footer_contact_title')}</h3>
         <ul>
-          <li>2533 Street Al Imam Saoud Bin Faisal</li>
-          <li>Hiteen district 13512, Riyadh</li>
+          <li>{$t('footer_contact_address')}</li>
+          <li>{$t('footer_contact_city')}</li>
           <li><a href="mailto:info@innvotra.com">info@innvotra.com</a></li>
           <li><a href="tel:+96611232775">+966 11 232 775</a></li>
         </ul>
         <div class="social-links">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">{$t('footer_linkedin')}</a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer">{$t('footer_twitter')}</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>All rights reserved to Innovative Transformation - {currentYear} ©</p>
+      <p>{$t('footer_copyright')} - {currentYear} ©</p>
     </div>
   </footer>
   

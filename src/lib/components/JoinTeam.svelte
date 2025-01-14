@@ -1,4 +1,5 @@
 <script>
+    import {  t} from "svelte-i18n";
     const handleJoinClick = () => {
       // Handle join button click
       console.log('Join button clicked');
@@ -17,18 +18,17 @@
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-          Interested To Join Our Team?
+          {$t('join_title')}
         </h2>
         
         <p class="text-gray-600 text-lg mb-10 leading-relaxed">
-          We value expertise, creativity, and ambition. Join our team and grow with a company committed to innovation and excellence.
-        </p>
+          {$t('join_paragraph')}        </p>
   
         <button
           on:click={handleJoinClick}
           class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-12 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
         >
-          Join Us
+          {$t('join_button')}
         </button>
       </div>
     </div>

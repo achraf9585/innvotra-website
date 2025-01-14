@@ -1,31 +1,46 @@
 <script>
+    import { locale , t } from "svelte-i18n";
+    import { onMount } from "svelte";
     export let title = '';
+    export let titleAr = '';
+    export let descriptionAr = '';
     export let description = '';
+
     export let icon = '';
     let showFullDescription = false;
 
 function toggleDescription() {
   showFullDescription = !showFullDescription;
 }
+
+  // Update currentLocale when $locale changes
+  $: currentLocale = $locale;
+
+
+  onMount(() => {
+    currentLocale = $locale; // Fetch the current locale
+  });
   </script>
   
   <div class=" h-full w-full flex flex-col justify-between bg-gray-50 bg-opacity-30 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
     <div class="mb-6">
       <img src={icon} alt={title} class="w-12 h-12" />
     </div>
-    <h3 class="text-2xl font-bold text-navy-900 mb-4">{title}</h3>
+    <h3 class="text-2xl font-bold text-navy-900 mb-4">
+      {currentLocale === 'ar' ? titleAr : title}
+    </h3>
     <p class="text-gray-600 mb-6 leading-relaxed">
       {#if showFullDescription}
-        {description}
+        {currentLocale === 'ar' ? descriptionAr : description}
       {:else}
-        {description.slice(0, 100)}... <!-- Show a preview of the description -->
+        {currentLocale === 'ar' ? descriptionAr.slice(0, 100) : description.slice(0, 100)}...
       {/if}
     </p>
     <button on:click={toggleDescription} class="text-blue-600 justify-center bg-blue-50 border border-blue-600 px-6 py-2 rounded-full w-full font-semibold flex items-center hover:text-blue-700 transition-colors">
       {#if showFullDescription}
-        Show Less
+      {$t('read_less_btn')}
       {:else}
-        Read More
+      {$t('read_more_btn')}    
       {/if}
       <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

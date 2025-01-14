@@ -1,4 +1,6 @@
 <script>
+    import { t } from "svelte-i18n";
+
   let email = '';
 
   function handleSubmit() {
@@ -20,8 +22,8 @@
   <div class="newsletter-content flex flex-col items-center relative z-10 text-white px-6 md:px-12 space-y-8">
       <!-- Title and Description -->
       <div class="textWrap w-full text-center md:text-left">
-          <h2 class="font-semibold text-3xl md:text-5xl">Subscribe to our newsletter</h2>
-          <p class="text-lg md:text-xl font-thin py-2">Follow all our news </p>
+          <h2 class="font-semibold text-3xl md:text-5xl">{$t('subscribe_title')}</h2>
+          <p class="text-lg md:text-xl font-thin py-2"> {$t('subscribe_description')} </p>
       </div>
 
       <!-- Form -->
@@ -31,7 +33,7 @@
                   <input
                       type="email"
                       bind:value={email}  
-                      placeholder="Enter your email"
+                      placeholder="{$t('subscribe_placeholder')}"
                       required
                       class="w-full sm:w-3/4 p-3 rounded-md border border-gray-300 text-black"
                   />
@@ -39,7 +41,7 @@
                       type="submit" 
                       class="w-full sm:w-auto px-6 py-3 rounded-md bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] font-semibold text-white hover:opacity-90 transition"
                   >
-                      Submit
+                      {$t('subscribe_button')}  
                   </button>
               </div>
           </form>

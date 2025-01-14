@@ -1,4 +1,5 @@
 <script>
+        import {  t} from "svelte-i18n";
   import  Carousel  from 'svelte-carousel'
 
   const partners = [
@@ -33,9 +34,11 @@
 <section class="py-16 px-4">
   <div class="max-w-7xl mx-auto">
     <h2 class="text-center text-4xl md:text-5xl font-bold text-[#0a1f44] mb-16">
-      Our Partners
+      {$t('partners_title')}
     </h2>
-    
+    <div dir="ltr">
+
+   
     <Carousel
       autoplay
       autoplayDuration={3000}
@@ -45,9 +48,10 @@
       swiping={true}
       particlesToShow={5}
       particlesToScroll={1}
+      
     >
       {#each partners as partner}
-        <div class="carousel-item w-full max-w-[200px] flex items-center justify-center p-4">
+        <div class="carousel-item w-full max-w-[200px] flex items-center justify-center p-4 ">
           <img
             src={partner.logo}
             alt={partner.alt}
@@ -56,6 +60,7 @@
         </div>
       {/each}
     </Carousel>
+  </div>
   </div>
 </section>
 

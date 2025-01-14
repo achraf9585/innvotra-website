@@ -13,5 +13,51 @@
   "read_less_btn": " Read less ",
   "service1_text": "We deliver our differentiating",
   "service2_text": "consulting services & emerging technology",
-  "service3_text": "based solutions"
+  "service3_text": "based solutions",
+  "differentiates_title": "What Differentiates Us",
+  "join_title": "Interested To Join Our Team?",
+  "join_paragraph": "We value expertise, creativity, and ambition. Join our team and grow with a company committed to innovation and excellence.",
+  "join_button": "Join Now",
+  "innovate_title": " Innovate with us",
+  "innovate_description": "Tell us about your requirements and our team will be eager to know more and help you achieve your goals. ",
+  "innovate_button": " Tell us about your needs   ",
+  "partners_title": "Our Partners",
+  "clients_title": "Our Clients",
+  "subscribe_title": "Subscribe to our newsletter",
+  "subscribe_placeholder": "Enter your email address",
+  "subscribe_button": "Subscribe",
+  "subscribe_description": "Follow all our news ",
+  "contact_title": "Want to get in touch?",
+  "contact_button": "Contact Us",
+
+  "footer_product_title": "Products",
+  "footer_service_title": "Services",
+  "footer_contact_title": "Contact Us",
+
+  "footer_product_1": "Insider - Chat With Your Data",
+
+  "footer_product_2": "Virtual Agent",
+  "footer_product_3": "Metaservice Center",
+  "footer_product_4": "DocChain - Digital Notarization",
+
+  "footer_product_5": "Virtual tours",
+  "footer_product_6": "Digital Twin",
+
+  "footer_service_1": "Digital Innovation",
+
+  "footer_service_2": "Customer Experience",
+  "footer_service_3": "Digital Transformation",
+  "footer_service_4": "Data And Business Insight",
+
+  "footer_service_5": "Emerging Technologies",
+  "footer_service_6": "Design Studio & Immersive Experience",
+
+  "footer_contact_address": "2533 Street Al Imam Saoud Bin Faisal",
+  "footer_contact_city": "Hiteen district 13512, Riyadh",
+  "footer_contact_email": "info@innvotra.com",
+  "footer_contact_phone": "+966 11 232 775",
+  "footer_linkedin": "Linkedin",
+  "footer_twitter": "Twitter",
+
+  "footer_copyright": "All rights reserved to Innovative Transformation"
 }

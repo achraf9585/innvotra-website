@@ -1,8 +1,18 @@
 <script>
+      import { locale  } from "svelte-i18n";
+      import { onMount } from "svelte";
   export let title = '';
+  export let titleAr = '';
+  export let descriptionAr = '';
   export let description = '';
   export let icon = '';
   export let values = [];
+
+  $: currentLocale = $locale;
+
+  onMount(() => {
+    currentLocale = $locale; // Fetch the current locale
+  });
 </script>
 
 <div class="relative border-[0.5px] border-white/15  backdrop-filter backdrop-brightness-200  backdrop-blur-3xl rounded-xl p-8 text-white ">
@@ -16,15 +26,17 @@
     <h3 class="text-2xl font-bold text-center mb-4">{title}</h3>
     {#if description}
       <p class="text-gray-300 leading-relaxed text-center mb-4">
-        {description}
+        {currentLocale === 'ar' ? descriptionAr : description}
+
       </p>
     {/if}
     {#if values.length > 0}
       <div class="space-y-4">
         {#each values as value}
           <div>
-            <span class="font-semibold">{value.title}:</span>
-            <span class="text-gray-300">{value.description}</span>
+            <span class="font-semibold">{currentLocale === 'ar' ? value.titleAr : value.title}:</span>
+            <span class="text-gray-300">      {currentLocale === 'ar' ? value.descriptionAr : value.description}
+            </span>
           </div>
         {/each}
       </div>
