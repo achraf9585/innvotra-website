@@ -21,7 +21,7 @@
        icon: '/icons/agents.png'
       },
       {
-        title: 'Metaservice center',
+        title: 'Metaservice Center',
         titleAr:'مركز الخدمة في الميتافيرس',
         descriptionAr:'يمثل مركز الخدمة لدينا في الميتافيرس تطورًا كبيرًا في كيفية تفاعل الشركات مع العملاء، حيث يتم الاستفادة من التقنيات الغامرة لإنشاء تجارب خدمة جذابة وفعالة وشخصية. مع استمرار تطور الميتافيرس، ستتوسع التطبيقات المحتملة لمراكز الخدمة، مما يوفر طرقًا مبتكرة لتعزيز تفاعل العملاء ودعمهم عبر مختلف الصناعات. نبني بيئة افتراضية حيث يمكن للمستخدمين الوصول إلى خدمات ودعم متنوعة من خلال التقنيات الغامرة مثل الواقع الافتراضي (VR)، والواقع المعزز (AR)، والواقع المختلط (MR).',
         description: 'Our Metaverse-Based Service Center represents a significant evolution in how businesses can interact with customers, leveraging immersive technologies to create engaging, efficient, and personalized service experiences. As the metaverse continues to develop, the potential applications for service centers will expand, offering innovative ways to enhance customer engagement and support across various industries. We build a virtual environment where users can access various services and support through immersive technologies such as virtual reality (VR), augmented reality (AR), and mixed reality (MR).',
@@ -35,7 +35,7 @@
         icon: '/icons/smart-contracts.png'
       },
       {
-        title: 'Virtual tours',
+        title: 'Virtual Tours',
         titleAr:'الجولات الافتراضية',
         descriptionAr:'تقدم الجولات الافتراضية لدينا طريقة قوية لاستكشاف البيئات المختلفة والتفاعل معها، سواء للعقارات أو التعليم أو السياحة أو التطبيقات الأخرى. من خلال توفير تجارب غامرة وتفاعلية، تُعزز الجولات الافتراضية إمكانية الوصول والفهم، مما يجعلها أداة متزايدة الشعبية في العديد من الصناعات. نواصل توسيع قدرات وتطبيقات الجولات الافتراضية لدينا لإثراء تجارب المستخدم. باستخدام صور 360 درجة، يمكن للمستخدمين استعراض البيئة من جميع الزوايا لاستكشاف شامل، مع نقاط تفاعلية للوصول إلى معلومات أو صور أو فيديوهات إضافية حول ميزات معينة داخل الجولة.',
         description: 'Our Virtual tours offer a powerful way to explore and engage with various environments, whether for real estate, education, tourism, or other applications. By providing immersive and interactive experiences, virtual tours enhance accessibility and understanding, making them an increasingly popular tool in many industries. We continue to expand our Virtual tours capabilities and applications, further enriching user experiences. Using 360-Degree Imagery, users can view surroundings from all angles, allowing for comprehensive exploration of the environment, such as hotspots or icons to access additional information, images, or videos about specific features within the tour. Integration of audio, video, and text to enhance the storytelling aspect and provide context about the location, we provide simple controls that allow users to move through the space, zoom in on details, and switch between different views or areas.',

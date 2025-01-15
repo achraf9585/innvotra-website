@@ -26,7 +26,7 @@
       values: [
         {
           title: 'Commitment',
-          titleAr: 'التزام',
+          titleAr: 'الإلتزام',
           descriptionAr: 'مكرسة لتجاوز التوقعات.',
           description: 'Dedicated to exceeding expectations.'
         },

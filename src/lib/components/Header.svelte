@@ -53,7 +53,7 @@
       </div>
 
       <!-- Centered Desktop Menu -->
-      <div class="hidden md:flex items-center space-x-16 mx-auto">
+      <div class="hidden md:flex items-center gap-10  mx-auto">
         {#each menuItems as item}
           <a
             href={item.href}

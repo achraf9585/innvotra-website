@@ -21,9 +21,9 @@
   
   <div class="newsletter-content flex flex-col items-center relative z-10 text-white px-6 md:px-12 space-y-8">
       <!-- Title and Description -->
-      <div class="textWrap w-full text-center md:text-left">
+      <div class="textWrap w-full text-center md:text-right">
           <h2 class="font-semibold text-3xl md:text-5xl">{$t('subscribe_title')}</h2>
-          <p class="text-lg md:text-xl font-thin py-2"> {$t('subscribe_description')} </p>
+          <p class="text-lg font-semibold md:text-xl  py-2"> {$t('subscribe_description')} </p>
       </div>
 
       <!-- Form -->

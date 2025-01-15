@@ -25,12 +25,12 @@
       <div class="footer-section">
         <h3> {$t('footer_product_title')}</h3>
         <ul>
-          <li><a href="/chat">Insider - Chat With Your Data</a></li>
-          <li><a href="/agent">Virtual Agent</a></li>
-          <li><a href="/center">Metaservice Center</a></li>
-          <li><a href="/chain">DocChain - Digital Notarization</a></li>
-          <li><a href="/tours">Virtual tours</a></li>
-          <li><a href="/twin">Digital Twin</a></li>
+          <li><a href="/#">Insider - Chat With Your Data</a></li>
+          <li><a href="/#">Virtual Agent</a></li>
+          <li><a href="/#">Metaservice Center</a></li>
+          <li><a href="/#">DocChain - Digital Notarization</a></li>
+          <li><a href="/#">Virtual tours</a></li>
+          <li><a href="/#">Digital Twin</a></li>
         </ul>
       </div>
   

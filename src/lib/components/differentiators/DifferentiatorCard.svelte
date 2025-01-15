@@ -23,7 +23,7 @@
 
   <!-- Card content -->
   <div class="flex flex-col items-center mt-6">
-    <h3 class="text-2xl font-bold text-center mb-4">{title}</h3>
+    <h3 class="text-2xl font-bold text-center mb-4"> {currentLocale === 'ar' ? titleAr : title}</h3>
     {#if description}
       <p class="text-gray-300 leading-relaxed text-center mb-4">
         {currentLocale === 'ar' ? descriptionAr : description}

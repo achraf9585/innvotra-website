@@ -27,15 +27,15 @@
       },
       {
         title: 'Digital Innovation',
-         titleAr:'',
-        descriptionAr:'',
+         titleAr:'الابتكار الرقمي',
+        descriptionAr:'نساعد الشركاء في تعزيز الابتكارات الرقمية من خلال توفير خدمات مثل تطوير الاستراتيجيات وبرامج ثقافة الابتكار وحالات الاستخدام المبتكرة وبناء مراكز الابتكار وبرامج الحاضنات والمسرعات',
         description: 'Assist clients in both public and private sectors in fostering Digital Innovation enhancing their productivity and meeting their organizational objectives.',
         icon: '/icons/digitial-twin.png'
       },
       {
         title: 'Emerging Technologies',
-         titleAr:'الابتكار الرقمي',
-        descriptionAr:'نساعد الشركاء في تعزيز الابتكارات الرقمية من خلال توفير خدمات مثل تطوير الاستراتيجيات وبرامج ثقافة الابتكار وحالات الاستخدام المبتكرة وبناء مراكز الابتكار وبرامج الحاضنات والمسرعات',
+         titleAr:' تطبيقات التقنيات الناشئة',
+        descriptionAr:'    نطور حلول مبتكرة باستخدام التقنيات الناشئة وفق أفضل الممارسات القائمة لمساعدة شركائنا في القطاعين العام والخاص في مواجهة التحديات التي تواجههم وتحقيق مستهدفاتهم الاستراتيجية.',
         description: 'Develop innovative and transformative emerging-tech solutions using based best practices to help organizations addressing their challenges and achieving their objectives.',
         icon: '/icons/innovation.png'
       },
@@ -59,7 +59,7 @@
               <br />
               <span class="text-navy-900">  {$t('service2_text')}   </span>
               <br />
-              <span class="text-gray-400">  {$t('service3_text')}   </span>
+             
             </h2>
           </div>
 

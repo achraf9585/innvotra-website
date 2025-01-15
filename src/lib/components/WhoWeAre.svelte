@@ -12,7 +12,7 @@
           </h2>
         </div>
         <div class="md:w-2/3">
-          <p class="text-gray-600 leading-relaxed font-sans">
+          <p class="text-gray-600 text-xl leading-relaxed font-sans">
             {$t('whoweare_paragraph')}
           </p>
         </div>
