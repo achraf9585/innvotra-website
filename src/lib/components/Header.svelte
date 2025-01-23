@@ -1,50 +1,63 @@
 <script>
-  import { locale , t} from "svelte-i18n";
+  import { locale, t } from "svelte-i18n";
   import { onMount } from "svelte";
 
   let isMenuOpen = false;
   let isLanguageDropdownOpen = false;
 
   const languages = [
-    { code: 'en', text: 'English', flag: '/images/usa-flag.png' },
-    { code: 'ar', text: 'العربية', flag: '/images/saudi-flag.png' },
+    { code: "en", text: "English", flag: "/images/usa-flag.png" },
+    { code: "ar", text: "العربية", flag: "/images/saudi-flag.png" },
   ];
 
   let currentLanguage = languages[0]; // Default to English
 
+  let isScrolled = false;
+
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
   };
-  // Update currentLocale when $locale changes
+
   $: currentLocale = $locale;
 
-    // Ensure currentLocale gets the correct value on component mount
-    onMount(() => {
+  onMount(() => {
     currentLocale = $locale; // Fetch the current locale
+
+    const handleScroll = () => {
+      const threshold = 50; // Adjust this as needed
+      isScrolled = window.scrollY > threshold;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   });
 
   const toggleLanguageDropdown = () => {
     isLanguageDropdownOpen = !isLanguageDropdownOpen;
   };
 
-  const menuItems = [
-    { text: 'Home', textAr: 'الصفحة الرئيسية',  href: '/' },
-    { text: 'About Us',textAr:'معلومات عنا', href: '#about' },
-    { text: 'Products',textAr:'شركاؤنا و عملائنا', href: '#products' },
-    { text: 'Services', textAr:'خدماتنا',href: '#services' },
-    { text: 'Contact Us', textAr:'اتصل بنا',href: '#contactUs' },
-  ];
-
   function switchLanguage(lang) {
-  currentLanguage = languages.find(language => language.code === lang);
-  locale.set(lang);
-  isLanguageDropdownOpen = false; 
-  isMenuOpen = false; 
-}
+    currentLanguage = languages.find((language) => language.code === lang);
+    locale.set(lang);
+    isLanguageDropdownOpen = false;
+    isMenuOpen = false;
+  }
 
+  const menuItems = [
+    { text: "Home", textAr: "الصفحة الرئيسية", href: "/" },
+    { text: "About Us", textAr: "معلومات عنا", href: "#about" },
+    { text: "Products", textAr: "شركاؤنا و عملائنا", href: "#products" },
+    { text: "Services", textAr: "خدماتنا", href: "#services" },
+    { text: "Contact Us", textAr: "اتصل بنا", href: "#contactUs" },
+  ];
 </script>
 
-<header class="fixed w-full z-50 bg-transparent">
+
+<header class="fixed w-full z-50 bg-transparent {isScrolled ? 'is-scrolled' : ''}">
+
   <nav class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
@@ -188,5 +201,29 @@
   header {
     backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  header.is-scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+
+  header.is-scrolled a {
+    color: black;
+  }
+
+  header.is-scrolled a:hover {
+    color: blue; /* Hover color for white background */
+  }
+
+  a {
+    color: white;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: blue; /* Hover color for dark background */
   }
 </style>
+

@@ -22,7 +22,7 @@
         title: 'Data and Business Insight',
         titleAr:'إدارة وحوكمة البيانات وحلول ذكاء الأعمال',
         descriptionAr:'تطوير حلول مبتكرة توفر رؤى استراتيجية لصناع القرار باستخدام الذكاء الاصطناعي و التعلم الآلي والتعلم العميق. كما نساعد الشركاء في إدارة أصول البيانات واستثمارها وتعزيز حوكمتها.',
-        description: 'To develop innovative solutions that provide business insight for decision makers and enhance customer experience in private and public sectors using scientific insights.',
+        description: 'We develop innovative solutions that provide business insight for decision makers and enhance customer experience in private and public sectors using scientific insights.',
         icon: '/icons/evaluate.png'
       },
       {

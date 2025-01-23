@@ -67,11 +67,11 @@
 <section class="relative h-screen w-full overflow-hidden">
   <!-- Vimeo Video Background -->
   <iframe
-    src={videoSrc}
-    class="absolute top-0 left-0 w-full h-full"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen
+  src={videoSrc}
+  class="absolute top-0 left-0 w-full h-full object-cover 2xl:w-[2000px]"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
   ></iframe>
 
   <!-- Overlay -->
