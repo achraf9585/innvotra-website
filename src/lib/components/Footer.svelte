@@ -83,7 +83,45 @@
 
 <footer>
   <div class="footer-content">
-    <!-- Footer content -->
+    <div class="footer-section">
+      <h3> {$t('footer_product_title')}</h3>
+      <ul>
+        <li><a href="/#">Insider - Chat With Your Data</a></li>
+        <li><a href="/#">Virtual Agent</a></li>
+        <li><a href="/#">Metaservice Center</a></li>
+        <li><a href="/#">DocChain - Digital Notarization</a></li>
+        <li><a href="/#">Virtual tours</a></li>
+        <li><a href="/#">Digital Twin</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>{$t('footer_service_title')}</h3>
+      <ul> 
+        <li><a href="/#">{$t('footer_service_1')}</a></li>
+        <li><a href="/#"> {$t('footer_service_2')}</a></li>
+        <li><a href="/#"> {$t('footer_service_3')}</a></li>
+        <li><a href="/#"> {$t('footer_service_4')}</a></li>
+        <li><a href="/#"> {$t('footer_service_5')}</a></li>
+        <li><a href="/#">   {$t('footer_service_6')}</a></li>
+
+     
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>{$t('footer_contact_title')}</h3>
+      <ul>
+        <li>{$t('footer_contact_address')}</li>
+        <li>{$t('footer_contact_city')}</li>
+        <li><a href="mailto:info@innvotra.com">info@innvotra.com</a></li>
+        <li><a href="tel:+96611232775">+966 11 232 775</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">{$t('footer_linkedin')}</a>
+        <a href="https://twitter.com" target="_blank" rel="noreferrer">{$t('footer_twitter')}</a>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">
     <p>{$t('footer_copyright')} - {currentYear} ©</p>
