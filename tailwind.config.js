@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Almarena Neue", "sans-serif"], // Set as the primary sans-serif font
+        serif: ["Almarena Neue", "serif"], // Set as the primary serif font
       },
       fontWeight: {
         "sans-600": 600, // Custom font weight for sans

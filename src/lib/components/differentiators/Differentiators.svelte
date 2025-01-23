@@ -10,7 +10,7 @@
       descriptionAr:'الاستفادة من تطبيق التقنيات الناشئة بأفضل  الحلول والممارسات في مجال التحول الرقمي وتوفير أعلى مستوى من الخدمات الاستشارية العالية  الجودة المدعومة بالابتكار الرقمي.',
       description:
         'To lead in innovative leveraging of cutting-edge technologies with best practices in digital transformation and provide the highest level of quality consulting services and solutions.',
-      icon: './icons/eye.png' // Example Iconify icon
+      icon: './icons/vision.png' // Example Iconify icon
     },
     {
       title: 'Mission',
@@ -18,7 +18,7 @@
       descriptionAr:'خدمة عملائنا كشركاء موثوق بهم، وتزويدهم بأفضل الممارسات  في مجال التحول الرقمي وحلول البيانات والذكاء الاصطناعي من خلال توفير أعلى مستويات  الخدمات الاستشارية عالية الجودة المدعومة بالابتكار الرقمي.',
       description:
         'Serve our customers as trusted allies, leveraging best practices in digital transforming, data and business insight with highest level of quality consulting services, customer services, and digital innovation.',
-      icon: './icons/mission.png' // Example Iconify icon
+      icon: './icons/target.png' // Example Iconify icon
     },
     {
       title: 'Value',
@@ -43,7 +43,7 @@
           description: 'Adapting to your evolving needs.'
         }
       ],
-      icon: './icons/diamond.png' // Example Iconify icon
+      icon: './icons/value.png' // Example Iconify icon
     }
   ];
   </script>

@@ -34,8 +34,8 @@
       <div class="space-y-4">
         {#each values as value}
           <div>
-            <span class="font-semibold">{currentLocale === 'ar' ? value.titleAr : value.title}:</span>
-            <span class="text-gray-300">      {currentLocale === 'ar' ? value.descriptionAr : value.description}
+            <span class="font-semibold">{currentLocale === 'ar' ? value.titleAr : value.title}</span>
+            <span class="text-gray-300">  
             </span>
           </div>
         {/each}

@@ -36,10 +36,12 @@
   ];
 
   function switchLanguage(lang) {
-    currentLanguage = languages.find(language => language.code === lang);
-    locale.set(lang);
-    isLanguageDropdownOpen = false; // Close dropdown after selection
-  }
+  currentLanguage = languages.find(language => language.code === lang);
+  locale.set(lang);
+  isLanguageDropdownOpen = false; 
+  isMenuOpen = false; 
+}
+
 </script>
 
 <header class="fixed w-full z-50 bg-transparent">
@@ -126,25 +128,59 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    {#if isMenuOpen}
-      <div class="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-90 py-4 font-sans">
-        {#each menuItems as item}
-          <a
-            href={item.href}
-            class="block text-white hover:text-blue-400 px-6 py-2"
-          >
-            {item.text}
-          </a>
-        {/each}
-        <button
-          class="block w-full text-left text-white hover:text-blue-400 px-6 py-2 font-sans"
-          on:click={() => switchLanguage('ar')}
+<!-- Mobile Menu -->
+{#if isMenuOpen}
+  <div class="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-90 py-4 font-sans">
+    {#each menuItems as item}
+      <a
+        href={item.href}
+        class="block text-white hover:text-blue-400 px-6 py-2"
+      >
+        {currentLocale === 'ar' ? item.textAr : item.text}
+      </a>
+    {/each}
+
+    <!-- Language Dropdown for Mobile -->
+    <div class="relative px-6 py-2">
+      <button
+        class="block w-full bg-blue-600 text-white px-6 py-2 rounded-full font-sans hover:bg-blue-700 transition-colors flex items-center justify-between"
+        on:click={toggleLanguageDropdown}
+      >
+        <img src={currentLanguage.flag} alt={currentLanguage.text} class="w-5 h-3 mr-2" />
+        {currentLanguage.text}
+        <svg
+          class="w-4 h-4 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          العربية
-        </button>
-      </div>
-    {/if}
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+
+      {#if isLanguageDropdownOpen}
+        <div class="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-md w-full">
+          {#each languages as language}
+            <button
+              class="flex items-center w-full px-4 py-2 text-sm text-black hover:bg-gray-200"
+              on:click={() => switchLanguage(language.code)}
+            >
+              <img src={language.flag} alt={language.text} class="w-5 h-3 mr-2" />
+              {language.text}
+            </button>
+          {/each}
+        </div>
+      {/if}
+    </div>
+  </div>
+{/if}
+
+
   </nav>
 </header>
 

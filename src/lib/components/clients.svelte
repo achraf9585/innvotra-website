@@ -2,6 +2,29 @@
         import {  t} from "svelte-i18n";
     import  Carousel  from 'svelte-carousel'
 
+    import { onMount } from 'svelte';
+
+let particlesToShow = 5; // Default value for larger screens
+
+// Function to handle screen size change
+function updateParticlesToShow() {
+if (window.innerWidth <= 768) {
+  particlesToShow = 2; // Use 3 particles on mobile screens
+} else {
+  particlesToShow = 5; // Use 5 particles on larger screens
+}
+}
+
+// Add event listener to handle screen resize
+onMount(() => {
+updateParticlesToShow(); // Initial check
+window.addEventListener('resize', updateParticlesToShow);
+
+return () => {
+  window.removeEventListener('resize', updateParticlesToShow);
+};
+});
+
     const partners = [
       {
         name: "OvalEdge",
@@ -44,7 +67,7 @@
       arrows={true}
       dots={false}
       swiping={true}
-      particlesToShow={5}
+      particlesToShow={particlesToShow}
       particlesToScroll={1}
     >
       

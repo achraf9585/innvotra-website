@@ -1,9 +1,45 @@
-<script>
+<script lang="ts">
     import {  t} from "svelte-i18n";
-    const handleJoinClick = () => {
-      // Handle join button click
-      console.log('Join button clicked');
-    };
+
+  // Function to dynamically load the HubSpot form
+  function loadHubSpotForm(formId: string) {
+    const externalForm = document.getElementById("external-form");
+    if (!externalForm.innerHTML) {
+      const script = document.createElement("script");
+      script.setAttribute("charset", "utf-8");
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute("src", "//js.hsforms.net/forms/embed/v2.js");
+      script.onload = () => {
+        //@ts-ignore
+        hbspt.forms.create({
+          portalId: "48736590",
+          formId: formId,
+          target: "#external-form",
+        });
+      };
+      document.body.appendChild(script);
+    }
+  }
+  function openModal() {
+    const modalContainer = document.getElementById("modal-container");
+    modalContainer.style.display = "flex";
+
+
+    const htmlLang = document.documentElement.lang || "en";
+    console.log(htmlLang)
+
+    if (htmlLang === "ar") {
+      loadHubSpotForm("50266195-57a4-4df9-9858-13af7188729c"); // Replace with your Arabic formId
+    } else {
+      loadHubSpotForm("ea32c3cc-29b0-4c0d-bff3-a8f81a6e5e25"); // English formId
+    }
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    const modalContainer = document.getElementById("modal-container");
+    modalContainer.style.display = "none";
+  }
   </script>
   
   <section class="py-20 bg-blue-50 relative overflow-hidden" id="contactUs">
@@ -25,7 +61,7 @@
           {$t('join_paragraph')}        </p>
   
         <button
-          on:click={handleJoinClick}
+        on:click={openModal}
           class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-12 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
         >
           {$t('join_button')}
@@ -38,4 +74,159 @@
     .text-navy-900 {
       color: #1a2b4b;
     }
+
+    /* Modal Styles */
+#modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  #modal-content {
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+
+  #modal-content button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Header Styles */
+  header {
+    background-color: #0A1B3D;
+    padding: 1.5rem 2rem;
+    width: 100%;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .contact-text {
+    color: white;
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .contact-button {
+    background-color: #4B6BFB;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-button:hover {
+    background-color: #3451db;
+  }
+
+  /* Footer Styles */
+  footer {
+    background-color: #0A1B3D;
+    color: white;
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 0.8rem;
+  }
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: #646cff;
+  }
+
+  .social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2a2a2a;
+    text-align: center;
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .header-right {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+
+
+  }
+
   </style>

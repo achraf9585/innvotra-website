@@ -29,6 +29,8 @@ function toggleDescription() {
     <h3 class="text-2xl font-bold text-navy-900 mb-4">
       {currentLocale === 'ar' ? titleAr : title}
     </h3>
+
+    
     <p class="text-gray-600 mb-6 leading-relaxed">
       {#if showFullDescription}
         {currentLocale === 'ar' ? descriptionAr : description}
