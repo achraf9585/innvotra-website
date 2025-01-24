@@ -65,14 +65,23 @@
 </script>
 
 <section class="relative h-screen w-full overflow-hidden">
-  <!-- Vimeo Video Background -->
+  <div class="absolute w-full aspect-video ">
+      <!-- Vimeo Video Background -->
   <iframe
+  id="vimeo-video"
+  title="Vimeo Video"
   src={videoSrc}
-  class="absolute top-0 left-0 w-full h-full object-cover 2xl:w-[2000px]"
+  class="relative w-full h-full object-cover"
+
   frameborder="0"
   allow="autoplay; fullscreen; picture-in-picture"
   allowfullscreen
-  ></iframe>
+></iframe>
+
+  </div>
+
+
+
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>

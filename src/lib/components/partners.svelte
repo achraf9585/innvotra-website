@@ -49,7 +49,23 @@ onMount(() => {
       name: "Moyas",
       logo: "/partners/moyasar.png",
       alt: "Moyas logo"
-    }
+    },
+    {
+      name: "Pluralsight",
+      logo: "/partners/pluralsight.png",
+      alt: "Pluralsight logo"
+    },
+    {
+      name: "SkillSoft",
+      logo: "/partners/skillsoft.png",
+      alt: "Skillsoft logo"
+    },
+    {
+      name: "SkillUp Institute",
+      logo: "/partners/skillup.png",
+      alt: "Skill up logo"
+    },
+  
   ];
 </script>
 
@@ -59,43 +75,61 @@ onMount(() => {
       {$t('partners_title')}
     </h2>
     <div dir="ltr">
-
-   
-    <Carousel
-      autoplay
-      autoplayDuration={3000}
-      pauseOnFocus
-      arrows={true}
-      dots={false}
-      swiping={true}
-      particlesToShow={particlesToShow}
-      particlesToScroll={1}
-      
-    >
-    {#each partners as partner}
-    <div class="carousel-item w-full max-w-[250px] sm:max-w-[200px] flex items-center justify-center p-6 sm:p-4">
-      <img
-        src={partner.logo}
-        alt={partner.alt}
-        class="w-full h-auto max-h-[80px] sm:max-h-[60px] object-contain transition-all duration-300 hover:scale-110"
-      />
+      <Carousel
+        autoplay
+        autoplayDuration={3000}
+        pauseOnFocus
+        arrows={true}
+        dots={false}
+        swiping={true}
+        particlesToShow={particlesToShow}
+        particlesToScroll={1}
+      >
+        {#each partners as partner}
+        <div class="carousel-item flex items-center justify-center p-6 sm:p-4">
+          <div class="logo-container">
+            <img
+              src={partner.logo}
+              alt={partner.alt}
+              class="logo-image"
+            />
+          </div>
+        </div>
+        {/each}
+      </Carousel>
     </div>
-  {/each}
-  
-    </Carousel>
-  </div>
   </div>
 </section>
+
 
 <style>
   section {
     background-color: white;
   }
-  
+
   :global(.carousel-item) {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 150px; /* Set a max width for the container */
+    max-height: 100px; /* Set a max height for the container */
+  }
+
+  .logo-image {
+    max-width: 100%; /* Ensures the logo fits within the container width */
+    max-height: 100%; /* Ensures the logo fits within the container height */
+    object-fit: contain; /* Maintains aspect ratio */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .logo-image:hover {
+    transform: scale(1.1); /* Adds a hover effect */
   }
 
   @media (max-width: 1024px) {
