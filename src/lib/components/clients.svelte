@@ -169,7 +169,7 @@ return () => {
   <section class="py-16 px-4">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-center text-4xl md:text-5xl font-bold text-[#0a1f44] mb-16">
-        {$t('partners_title')}
+        {$t('clients_title')}
       </h2>
       <div dir="ltr">
         <Carousel

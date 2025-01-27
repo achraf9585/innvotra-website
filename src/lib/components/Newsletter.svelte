@@ -1,11 +1,19 @@
 <script>
-    import { t } from "svelte-i18n";
+  import { t } from "svelte-i18n";
 
   let email = '';
+  let successMessage = ''; // To store the success message
 
   function handleSubmit() {
       console.log('Subscribing email:', email);
-      email = '';
+      successMessage = ' user subscribed successfully '
+      // Set success message
+      email = ''; // Clear the email field
+
+      // Optionally, clear the success message after a delay
+      setTimeout(() => {
+          successMessage = '';
+      }, 5000); // Clear after 5 seconds
   }
 </script>
 
@@ -23,7 +31,7 @@
       <!-- Title and Description -->
       <div class="textWrap w-full text-center md:text-right">
           <h2 class="font-semibold text-3xl md:text-5xl">{$t('subscribe_title')}</h2>
-          <p class="text-lg font-semibold md:text-xl  py-2"> {$t('subscribe_description')} </p>
+          <p class="text-lg font-semibold md:text-xl py-2"> {$t('subscribe_description')} </p>
       </div>
 
       <!-- Form -->
@@ -46,52 +54,68 @@
               </div>
           </form>
       </div>
+
+      <!-- Success Message -->
+      {#if successMessage}
+          <div class="mt-4 bg-green-500 text-white p-3 rounded-md w-full sm:w-auto text-center">
+              {successMessage}
+          </div>
+      {/if}
   </div>
 </section>
 
 <style>
 .newsletter-section {
-  position: relative;
-  overflow: hidden;
-  width: 90%;
-  max-width: 1200px;
-  height: auto;
+position: relative;
+overflow: hidden;
+width: 90%;
+max-width: 1200px;
+height: auto;
 }
 
 .newsletter-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 40px 20px;
-  color: white;
+position: relative;
+z-index: 2;
+text-align: center;
+padding: 40px 20px;
+color: white;
 }
 
 @media (min-width: 768px) {
-  .newsletter-content {
-      text-align: left;
-  }
+.newsletter-content {
+    text-align: left;
+}
 }
 
 input {
-  flex: 1;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+flex: 1;
+padding: 0.8rem;
+border: none;
+border-radius: 4px;
+font-size: 1rem;
 }
 
 button {
-  background-color: #646cff;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+background-color: #646cff;
+color: white;
+border: none;
+padding: 0.8rem 2rem;
+border-radius: 4px;
+cursor: pointer;
+font-size: 1rem;
+transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #535bf2;
+background-color: #535bf2;
+}
+
+.success-message {
+background-color: #38a169;
+color: white;
+padding: 10px;
+border-radius: 5px;
+margin-top: 15px;
+text-align: center;
 }
 </style>

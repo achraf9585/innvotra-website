@@ -115,10 +115,12 @@ onMount(() => {
 
   .logo-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 150px; /* Set a max width for the container */
-    max-height: 100px; /* Set a max height for the container */
+  justify-content: center;
+  align-items: center;
+  width: 350px; /* Set a fixed width */
+  height: 200px; /* Set a fixed height */
+  border-radius: 8px; /* Optional: add rounded corners */
+  overflow: hidden; /* Ensure logos do not exceed the container */
   }
 
   .logo-image {

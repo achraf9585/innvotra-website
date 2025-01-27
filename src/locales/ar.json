@@ -52,5 +52,10 @@
   "footer_product_title": "شركاؤنا",
   "footer_service_title": "خدماتنا",
   "footer_contact_title": "اتصل بنا",
-  "footer_copyright": "جميع الحقوق المحفوظة للتحول المبتكر"
+  "footer_copyright": "جميع الحقوق المحفوظة للتحول المبتكر",
+
+  "modal_get_in_touch": "اتصل بنا",
+  "modal_join_team": "انضم لفريقنا",
+  "modal_innovate": "ابتكر معنا",
+  "modal_contact_us": "اتصل بنا"
 }
