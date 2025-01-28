@@ -22,7 +22,7 @@ function toggleDescription() {
   });
   </script>
   
-  <div class=" h-full w-full flex flex-col justify-between bg-gray-50 bg-opacity-30 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class=" h-full w-full flex flex-col justify-between bg-gray-50 bg-opacity-30 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow mb-auto">
     <div class="mb-6">
       <img src={icon} alt={title} class="w-12 h-12" />
     </div>

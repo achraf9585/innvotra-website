@@ -6,7 +6,7 @@
     const products = [
       {
         title: 'Digital Transformation',
-        titleAr:'تحول الرقمي',
+        titleAr:' التحول الرقمي',
         descriptionAr:'نساعد الشركاء في القطاعين العام والخاص في تسريع التحول الرقمي من خلال تقديم خدمات استشارية وحلول مبتكرة تشمل تطوير الاستراتيجيات وتعزيز الحوكمة الرقمية وتطوير حلول رقمية مبتكرة وعصرية باستخدام تقنيات متقدمة.',
         description: 'Assist clients in both public and private sectors in accelerating Digital Transformation and enhancing IT governance.',
         icon: '/icons/transformation.png'
@@ -41,8 +41,8 @@
       },
       {
         title: 'Design Studio & Immersive Experience',
-         titleAr:'تطبيقات التقنيات الناشئة',
-        descriptionAr:'نطور حلول مبتكرة باستخدام التقنيات الناشئة وفق أفضل الممارسات القائمة لمساعدة شركائنا في القطاعين العام والخاص في مواجهة التحديات التي تواجههم وتحقيق مستهدفاتهم الاستراتيجية.',
+         titleAr:'    استوديو التصميم والتجارب الغامرة',
+        descriptionAr:' نقوم بتطوير تجارب الواقع المعزز الغامرة والتي تعمل على إحداث ثورة في التعامل مع العملاء وأصحاب المصلحة، من خلال الجمع بين التصميم والتكنولوجيا لإنشاء حلول سمعية بصرية وتفاعلية مذهلة. تشمل خدماتنا تصميم واجهة المستخدم (UI) وتجربة المستخدم (UX)، وتطوير المنتجات الرقمية، وإعادة هندسة الخدمات. نحن متخصصون في إدارة أنظمة التصميم وصياغة المحتوى المتكامل، والاستفادة من التقنيات المتطورة لتقديم تجارب مؤثرة وجذابة.',
         description: 'We develop immersive XR experiences that revolutionize engagement with clients and stakeholders, blending design and technology to create stunning audiovisual and interactive solutions.Our services include user interface (UI) and experience (UX) design, the development of digital products, and the re-engineering of services. We specialize in governing design systems and crafting integrated content, utilizing cutting-edge technologies to deliver impactful and engaging experiences.',
         icon: '/icons/social-media.png'
       },

@@ -85,16 +85,52 @@
 </header>
 
 <!-- Modal container -->
-<div id="modal-container" style="display: none;">
-  <div id="modal-content">
-    <button
-      on:click={closeModal}
-      style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;"
-    >
-      &times;
-    </button>
-    <!-- External form will be rendered here -->
-    <div id="external-form"></div>
+<div
+  id="modal-container"
+  class="fixed inset-0 hidden items-center justify-center bg-black/50 backdrop-blur-sm z-[999]"
+  style="display: none;"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div class="relative mx-4 w-full max-w-2xl">
+    <div class="relative rounded-xl bg-white p-6 shadow-2xl sm:p-8">
+      <button
+        on:click={closeModal}
+        class="absolute -right-2 -top-2 z-10 rounded-full bg-gray-100 p-2 transition-all hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Close modal"
+      >
+        <svg
+          class="h-6 w-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <h2 id="modal-title" class="mb-6 text-2xl font-bold text-gray-900">
+        {$t('modal_contact_us')}
+      </h2>
+
+      <div
+        id="loader"
+        class="flex h-32 items-center justify-center"
+        style="display: none;"
+      >
+        <div
+          class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"
+        />
+      </div>
+
+      <div id="external-form" class="[&_form]:w-full" />
+    </div>
   </div>
 </div>
 
@@ -103,12 +139,14 @@
     <div class="footer-section">
       <h3> {$t('footer_product_title')}</h3>
       <ul>
-        <li><a href="/#">Insider - Chat With Your Data</a></li>
-        <li><a href="/#">Virtual Agent</a></li>
-        <li><a href="/#">Metaservice Center</a></li>
-        <li><a href="/#">DocChain - Digital Notarization</a></li>
-        <li><a href="/#">Virtual tours</a></li>
-        <li><a href="/#">Digital Twin</a></li>
+
+
+        <li><a href="/#">{$t('footer_product_1')}</a></li>
+        <li><a href="/#"> {$t('footer_product_2')}</a></li>
+        <li><a href="/#"> {$t('footer_product_3')}</a></li>
+        <li><a href="/#"> {$t('footer_product_4')}</a></li>
+        <li><a href="/#"> {$t('footer_product_5')}</a></li>
+        <li><a href="/#">   {$t('footer_product_6')}</a></li>
       </ul>
     </div>
 
@@ -132,11 +170,31 @@
         <li>{$t('footer_contact_address')}</li>
         <li>{$t('footer_contact_city')}</li>
         <li><a href="mailto:info@innvotra.com">info@innvotra.com</a></li>
-        <li><a href="tel:+96611232775">+966 11 232 775</a></li>
+        <li><a href="tel:+96611232775" dir="ltr">+966 11 232 775</a></li>
       </ul>
       <div class="social-links">
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">{$t('footer_linkedin')}</a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer">{$t('footer_twitter')}</a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+        <!-- Linkedin -->
+<span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c0c1c3]">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+    <path
+      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+  </svg>
+</span></a>
+
+<a href="https://x.com" target="_blank" rel="noreferrer">
+<!-- X -->
+<span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c0c1c3]">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 512 512">
+    <path
+      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+  </svg>
+</span>
+</a>
       </div>
     </div>
   </div>

@@ -88,14 +88,15 @@
   import { t } from "svelte-i18n";
 
   let videoSrc =
-    'https://player.vimeo.com/video/1049611569?autoplay=1&muted=1&loop=1&background=1';
+    'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
+
   let isMobile = false;
 
   function updateVideoSrc() {
     isMobile = window.matchMedia('(max-width: 768px)').matches;
     videoSrc = isMobile
       ? 'https://player.vimeo.com/video/1050703289?autoplay=1&muted=1&loop=1&background=1'
-      : 'https://player.vimeo.com/video/1049611569?autoplay=1&muted=1&loop=1&background=1';
+      : 'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
   }
 
   onMount(() => {
