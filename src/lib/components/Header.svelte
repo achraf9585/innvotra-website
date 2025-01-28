@@ -70,10 +70,11 @@
       <!-- Centered Desktop Menu -->
       <div class="hidden md:flex items-center gap-10  mx-auto">
         {#each menuItems as item}
-          <a
-            href={item.href}
-            class="text-white hover:text-blue-400 transition-colors font-sans font-sans-600 leading-sans-24 text-[16px]"
-          >
+        <a
+        href={item.href}
+        on:click={() => isMenuOpen = false}  
+        class="block text-white hover:text-blue-400 px-6 py-2"
+      >
 
           {currentLocale === 'ar' ? item.textAr : item.text}
 
@@ -147,6 +148,7 @@
     {#each menuItems as item}
       <a
         href={item.href}
+        on:click={() => isMenuOpen = false}  
         class="block text-white hover:text-blue-400 px-6 py-2"
       >
         {currentLocale === 'ar' ? item.textAr : item.text}
