@@ -15,7 +15,7 @@
   });
 </script>
 
-<div class="product-card bg-gray-50 bg-opacity-30 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow mb-auto ">
+<div class="relative border-[0.5px] border-white/15  backdrop-filter backdrop-brightness-200  backdrop-blur-3xl rounded-xl p-8 text-white ">
   <!-- Icon container positioned above the card -->
   <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center">
     <img src={icon} class="" alt={title} />
