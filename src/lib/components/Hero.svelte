@@ -53,36 +53,43 @@
 <!-- Modal -->
 <div
   id="modal-container"
-  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+  class="hidden fixed inset-0 z-50 flex justify-center items-center w-full h-screen bg-black/50 backdrop-blur-sm"
+  style="display: none;"
+  role="dialog"
+  aria-modal="true"
+  on:click={handleBackdropClick}
 >
-  <div class="bg-white rounded-xl p-8 w-11/12 md:w-1/2 relative">
-    <!-- Modal Title -->
-    <h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
-      {$t('modal_get_in_touch')}
-    </h2>
+  <div class="relative mx-4 w-full max-w-2xl max-h-[90vh]">
+    <div class="relative rounded-xl bg-white shadow-2xl flex flex-col max-h-[90vh]">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center p-6 pb-4 border-b border-gray-200 sticky top-0 bg-white z-10">
+   
+        <button
+          on:click={closeModal}
+          class="text-gray-400 ml-auto hover:text-gray-500 transition-colors"
+          aria-label="Close modal"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
 
-    <!-- Loader -->
-    <div
-      id="loader"
-      class="flex items-center justify-center mb-4"
-      style="display: none;"
-    >
-      <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      <!-- Scrollable Body -->
+      <div class="overflow-y-auto flex-1 p-6 pt-4">
+        <div
+          id="loader"
+          class="flex h-32 items-center justify-center"
+          style="display: none;"
+        >
+          <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
+        </div>
+
+        <div id="external-form" class="[&_form]:w-full pb-4" />
+      </div>
     </div>
-
-    <!-- External Form -->
-    <div id="external-form"></div>
-
-    <!-- Close Button -->
-    <button
-      class="absolute top-4 right-4 text-gray-700 hover:text-black"
-      on:click={() => (document.getElementById('modal-container').style.display = 'none')}
-    >
-      ✕
-    </button>
   </div>
 </div>
-
 <script lang="ts">
   import { onMount } from 'svelte';
   import { t } from "svelte-i18n";
@@ -145,6 +152,14 @@
     }
   }
 
+   // Add this click handler to your existing script
+   function handleBackdropClick(event: MouseEvent) {
+    const modalContainer = document.getElementById("modal-container");
+    if (event.target === modalContainer) {
+      closeModal();
+    }
+  }
+
   function openModal() {
     const modalContainer = document.getElementById("modal-container");
     const loader = document.getElementById('loader');
@@ -171,11 +186,96 @@
   }
 </script>
 
-<style>
+<style global>
+  /* Enhanced HubSpot Form Styles */
+  .hs-form {
+    @apply space-y-6;
+  }
+
+  .hs-form-field {
+    @apply mb-4;
+  }
+
+  .hs-input,
+  .hs-input[type="text"],
+  .hs-input[type="email"],
+  .hs-input[type="tel"],
+  .hs-input[type="number"],
+  .hs-input[type="date"],
+  .hs-input[type="file"],
+  .hs-select,
+  .hs-form textarea {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all;
+  }
+
+  .hs-form label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .hs-form .hs-form-required {
+    @apply text-red-500;
+  }
+
+  .hs-form .hs-error-msg {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  .hs-form textarea {
+    @apply min-h-[100px];
+  }
+
+  .hs-button.primary {
+    @apply w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  /* Enhanced Modal Styles */
+  #modal-container .hs-form {
+    @apply pt-4;
+  }
+
+  #modal-container .hs-form h3 {
+    @apply text-xl font-semibold mb-6 pb-4 border-b border-gray-200;
+  }
+
+  /* Select dropdown arrow */
+  .hs-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
   #modal-container {
     display: none;
   }
   #loader div {
     border-color: #2A4167 transparent transparent transparent;
+  }
+
+
+  /* Custom scrollbar for modal */
+  #modal-container ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #modal-container ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  #modal-container ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  #modal-container ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Ensure form elements don't overflow */
+  .hs-form {
+    @apply max-w-full overflow-hidden;
   }
 </style>
