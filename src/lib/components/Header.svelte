@@ -144,7 +144,7 @@
 
 <!-- Mobile Menu -->
 {#if isMenuOpen}
-  <div class="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-90 py-4 font-sans">
+  <div class="md:hidden absolute top-full left-0 right-0 bg-white bg-opacity-70 py-4 font-sans">
     {#each menuItems as item}
       <a
         href={item.href}
