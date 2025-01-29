@@ -2,40 +2,22 @@
     import {  t} from "svelte-i18n";
 
   // Function to dynamically load the HubSpot form
-  function loadHubSpotForm(formId: string) {
+  function loadJotForm(formUrl: string) {
     const loader = document.getElementById('loader');
     const externalForm = document.getElementById("external-form");
+    
     loader.style.display = 'flex';
     externalForm.innerHTML = ''; // Clear previous form content
-   //@ts-ignore
-    if (window.hbspt) {
-      // Use existing script if already loaded
-         //@ts-ignore
-      window.hbspt.forms.create({
-        portalId: "48736590",
-        formId: formId,
-        target: "#external-form",
-        onFormReady: () => {
-          loader.style.display = 'none';
-        },
-      });
-    } else {
-      // Load script if not present
-      const script = document.createElement("script");
-      script.src = "//js.hsforms.net/forms/embed/v2.js";
-      script.onload = () => {
-           //@ts-ignore
-        window.hbspt.forms.create({
-          portalId: "48736590",
-          formId: formId,
-          target: "#external-form",
-          onFormReady: () => {
-            loader.style.display = 'none';
-          },
-        });
-      };
-      document.body.appendChild(script);
-    }
+
+    // Create iframe element
+    const iframe = document.createElement('iframe');
+    iframe.src = formUrl;
+    iframe.className = 'w-full h-[600px] border-0';
+    iframe.onload = () => {
+      loader.style.display = 'none';
+    };
+
+    externalForm.appendChild(iframe);
   }
 
   function openModal() {
@@ -45,11 +27,11 @@
     loader.style.display = 'flex';
 
     const htmlLang = document.documentElement.lang || "en";
-    const formId = htmlLang === "ar" 
-      ? "50266195-57a4-4df9-9858-13af7188729c" 
-      : "ea32c3cc-29b0-4c0d-bff3-a8f81a6e5e25";
+    const formUrl = htmlLang === "ar" 
+      ? "https://form.jotform.com/form/250276311925555" 
+      : "https://form.jotform.com/form/250277281510552";
     
-    loadHubSpotForm(formId);
+    loadJotForm(formUrl);
   }
 
   function closeModal() {

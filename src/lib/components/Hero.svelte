@@ -51,22 +51,20 @@
 </section>
 
 <!-- Modal -->
+<!-- Modal container -->
 <div
   id="modal-container"
-  class="hidden fixed inset-0 z-50 flex justify-center items-center w-full h-screen bg-black/50 backdrop-blur-sm"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
   style="display: none;"
   role="dialog"
   aria-modal="true"
-  on:click={handleBackdropClick}
 >
-  <div class="relative mx-4 w-full max-w-2xl max-h-[90vh]">
-    <div class="relative rounded-xl bg-white shadow-2xl flex flex-col max-h-[90vh]">
-      <!-- Modal Header -->
-      <div class="flex justify-between items-center p-6 pb-4 border-b border-gray-200 sticky top-0 bg-white z-10">
-   
+  <div class="relative mx-4 w-full max-w-2xl">
+    <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+      <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
         <button
           on:click={closeModal}
-          class="text-gray-400 ml-auto hover:text-gray-500 transition-colors"
+          class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
           aria-label="Close modal"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,18 +73,15 @@
         </button>
       </div>
 
-      <!-- Scrollable Body -->
-      <div class="overflow-y-auto flex-1 p-6 pt-4">
-        <div
-          id="loader"
-          class="flex h-32 items-center justify-center"
-          style="display: none;"
-        >
-          <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
-        </div>
-
-        <div id="external-form" class="[&_form]:w-full pb-4" />
+      <div
+        id="loader"
+        class="flex h-32 items-center justify-center"
+        style="display: none;"
+      >
+        <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
+
+      <div id="external-form" class="w-full"></div>
     </div>
   </div>
 </div>
@@ -116,41 +111,7 @@
   });
 
 
-  function loadHubSpotForm(formId: string) {
-    const loader = document.getElementById('loader');
-    const externalForm = document.getElementById("external-form");
-    loader.style.display = 'flex';
-    externalForm.innerHTML = ''; // Clear previous form content
- //@ts-ignore
-    if (window.hbspt) {
-      // Use existing script if already loaded
-       //@ts-ignore
-      window.hbspt.forms.create({
-        portalId: "48736590",
-        formId: formId,
-        target: "#external-form",
-        onFormReady: () => {
-          loader.style.display = 'none';
-        },
-      });
-    } else {
-      // Load script if not present
-      const script = document.createElement("script");
-      script.src = "//js.hsforms.net/forms/embed/v2.js";
-      script.onload = () => {
- //@ts-ignore
-        window.hbspt.forms.create({
-          portalId: "48736590",
-          formId: formId,
-          target: "#external-form",
-          onFormReady: () => {
-            loader.style.display = 'none';
-          },
-        });
-      };
-      document.body.appendChild(script);
-    }
-  }
+
 
    // Add this click handler to your existing script
    function handleBackdropClick(event: MouseEvent) {
@@ -160,6 +121,24 @@
     }
   }
 
+  function loadJotForm(formUrl: string) {
+    const loader = document.getElementById('loader');
+    const externalForm = document.getElementById("external-form");
+    
+    loader.style.display = 'flex';
+    externalForm.innerHTML = ''; // Clear previous form content
+
+    // Create iframe element
+    const iframe = document.createElement('iframe');
+    iframe.src = formUrl;
+    iframe.className = 'w-full h-[600px] border-0';
+    iframe.onload = () => {
+      loader.style.display = 'none';
+    };
+
+    externalForm.appendChild(iframe);
+  }
+
   function openModal() {
     const modalContainer = document.getElementById("modal-container");
     const loader = document.getElementById('loader');
@@ -167,11 +146,11 @@
     loader.style.display = 'flex';
 
     const htmlLang = document.documentElement.lang || "en";
-    const formId = htmlLang === "ar" 
-    ? '497d00c6-1438-4ec7-91b6-f85163af826c' // Arabic formId
-    : 'e7685f76-aa7c-480f-ac0c-a361fb248a32'; // English formId
+    const formUrl = htmlLang === "ar" 
+      ? "https://form.jotform.com/form/250276292161555" 
+      : "https://form.jotform.com/form/250276433898064";
     
-    loadHubSpotForm(formId);
+    loadJotForm(formUrl);
   }
 
   function closeModal() {
@@ -182,7 +161,6 @@
     modalContainer.style.display = "none";
     externalForm.innerHTML = ''; // Clear form content
     loader.style.display = 'none'; // Reset loader
-
   }
 </script>
 
@@ -245,6 +223,18 @@
     background-size: 1.5em 1.5em;
     -webkit-appearance: none;
     -moz-appearance: none;
+  }
+
+
+    /* Updated Modal Styles */
+    #modal-container iframe {
+    min-height: 500px;
+    @apply rounded-lg;
+  }
+  @media (max-width: 768px) {
+    #modal-container iframe {
+      min-height: 400px;
+    }
   }
 
   #modal-container {

@@ -3,40 +3,22 @@
 
   const currentYear = new Date().getFullYear();
 
-  function loadHubSpotForm(formId: string) {
+  function loadJotForm(formUrl: string) {
     const loader = document.getElementById('loader');
     const externalForm = document.getElementById("external-form");
+    
     loader.style.display = 'flex';
     externalForm.innerHTML = ''; // Clear previous form content
- //@ts-ignore
-    if (window.hbspt) {
-      // Use existing script if already loaded
-       //@ts-ignore
-      window.hbspt.forms.create({
-        portalId: "48736590",
-        formId: formId,
-        target: "#external-form",
-        onFormReady: () => {
-          loader.style.display = 'none';
-        },
-      });
-    } else {
-      // Load script if not present
-      const script = document.createElement("script");
-      script.src = "//js.hsforms.net/forms/embed/v2.js";
-      script.onload = () => {
-         //@ts-ignore
-        window.hbspt.forms.create({
-          portalId: "48736590",
-          formId: formId,
-          target: "#external-form",
-          onFormReady: () => {
-            loader.style.display = 'none';
-          },
-        });
-      };
-      document.body.appendChild(script);
-    }
+
+    // Create iframe element
+    const iframe = document.createElement('iframe');
+    iframe.src = formUrl;
+    iframe.className = 'w-full h-[600px] border-0';
+    iframe.onload = () => {
+      loader.style.display = 'none';
+    };
+
+    externalForm.appendChild(iframe);
   }
 
   function openModal() {
@@ -46,11 +28,11 @@
     loader.style.display = 'flex';
 
     const htmlLang = document.documentElement.lang || "en";
-    const formId = htmlLang === "ar" 
-      ? "5fe59cb0-4d84-4fb7-a1a8-fbdf059f6a2b" 
-      : "6ff042f7-8ed9-4fc8-b3e5-8fe7fe21b0d5";
+    const formUrl = htmlLang === "ar" 
+      ? "https://form.jotform.com/form/250277344095560" 
+      : "https://form.jotform.com/form/250276930823559";
     
-    loadHubSpotForm(formId);
+    loadJotForm(formUrl);
   }
 
   function closeModal() {
@@ -94,8 +76,7 @@
 >
   <div class="relative mx-4 w-full max-w-2xl">
     <div class="relative rounded-xl bg-white p-8 shadow-2xl">
-  
-      <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+ 
         <h2 class="text-2xl font-semibold text-gray-900">{$t('modal_contact_us')}</h2>
         <button
           on:click={closeModal}
@@ -108,7 +89,6 @@
         </button>
       </div>
 
-   
       <div
         id="loader"
         class="flex h-32 items-center justify-center"
@@ -117,10 +97,11 @@
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form" class="[&_form]:w-full" />
+      <div id="external-form" class="w-full"></div>
     </div>
   </div>
-</div>
+
+
 
 <footer>
   <div class="footer-content">
@@ -262,15 +243,18 @@
     @apply w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
   }
 
-  /* Enhanced Modal Styles */
-  #modal-container .hs-form {
-    @apply pt-4;
+/* Updated Modal Styles */
+#modal-container iframe {
+    min-height: 500px;
+    @apply rounded-lg;
   }
 
-  #modal-container .hs-form h3 {
-    @apply text-xl font-semibold mb-6 pb-4 border-b border-gray-200;
-  }
 
+  @media (max-width: 768px) {
+    #modal-container iframe {
+      min-height: 400px;
+    }
+  }
   /* Select dropdown arrow */
   .hs-select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
