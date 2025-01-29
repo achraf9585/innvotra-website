@@ -110,24 +110,24 @@
       <ul>
 
 
-        <li><a href="/#">{$t('footer_product_1')}</a></li>
-        <li><a href="/#"> {$t('footer_product_2')}</a></li>
-        <li><a href="/#"> {$t('footer_product_3')}</a></li>
-        <li><a href="/#"> {$t('footer_product_4')}</a></li>
-        <li><a href="/#"> {$t('footer_product_5')}</a></li>
-        <li><a href="/#">   {$t('footer_product_6')}</a></li>
+        <li>{$t('footer_product_1')}</li>
+        <li> {$t('footer_product_2')}</li>
+        <li> {$t('footer_product_3')}</li>
+        <li> {$t('footer_product_4')}</li>
+        <li> {$t('footer_product_5')}</li>
+        <li>   {$t('footer_product_6')}</li>
       </ul>
     </div>
 
     <div class="footer-section">
       <h3>{$t('footer_service_title')}</h3>
       <ul> 
-        <li><a href="/#">{$t('footer_service_1')}</a></li>
-        <li><a href="/#"> {$t('footer_service_2')}</a></li>
-        <li><a href="/#"> {$t('footer_service_3')}</a></li>
-        <li><a href="/#"> {$t('footer_service_4')}</a></li>
-        <li><a href="/#"> {$t('footer_service_5')}</a></li>
-        <li><a href="/#">   {$t('footer_service_6')}</a></li>
+        <li>{$t('footer_service_1')}</li>
+        <li> {$t('footer_service_2')}</li>
+        <li> {$t('footer_service_3')}</li>
+        <li> {$t('footer_service_4')}</li>
+        <li> {$t('footer_service_5')}</li>
+        <li>   {$t('footer_service_6')}</li>
 
      
       </ul>

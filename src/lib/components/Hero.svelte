@@ -1,3 +1,81 @@
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { t } from "svelte-i18n";
+
+  let videoSrc =
+    'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
+
+  let isMobile = false;
+
+  function updateVideoSrc() {
+    isMobile = window.matchMedia('(max-width: 768px)').matches;
+    videoSrc = isMobile
+      ? 'https://player.vimeo.com/video/1050703289?autoplay=1&muted=1&loop=1&background=1'
+      : 'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
+  }
+
+  onMount(() => {
+    updateVideoSrc(); // Set the initial state
+    window.addEventListener('resize', updateVideoSrc); // Update on window resize
+
+    return () => {
+      window.removeEventListener('resize', updateVideoSrc); // Clean up the event listener
+    };
+  });
+
+
+
+
+   // Add this click handler to your existing script
+   function handleBackdropClick(event: MouseEvent) {
+    const modalContainer = document.getElementById("modal-container");
+    if (event.target === modalContainer) {
+      closeModal();
+    }
+  }
+
+  function loadJotForm(formUrl: string) {
+    const loader = document.getElementById('loader');
+    const externalForm = document.getElementById("external-form");
+    
+    loader.style.display = 'flex';
+    externalForm.innerHTML = ''; // Clear previous form content
+
+    // Create iframe element
+    const iframe = document.createElement('iframe');
+    iframe.src = formUrl;
+    iframe.className = 'w-full h-[600px] border-0'; // Updated width class
+    iframe.onload = () => {
+      loader.style.display = 'none';
+    };
+
+    externalForm.appendChild(iframe);
+  }
+
+  function openModal() {
+    const modalContainer = document.getElementById("modal-container");
+    const loader = document.getElementById('loader');
+    modalContainer.style.display = "flex";
+    loader.style.display = 'flex';
+
+    const htmlLang = document.documentElement.lang || "en";
+    const formUrl = htmlLang === "ar" 
+      ? "https://form.jotform.com/form/250276292161555" 
+      : "https://form.jotform.com/form/250276433898064";
+    
+    loadJotForm(formUrl);
+  }
+
+  function closeModal() {
+    const modalContainer = document.getElementById("modal-container");
+    const externalForm = document.getElementById("external-form");
+    const loader = document.getElementById('loader');
+    
+    modalContainer.style.display = "none";
+    externalForm.innerHTML = ''; // Clear form content
+    loader.style.display = 'none'; // Reset loader
+  }
+</script>
 <section class="relative h-screen w-full overflow-hidden">
   {#if isMobile}
     <div class="absolute inset-0">
@@ -81,88 +159,10 @@
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form" class="w-full"></div>
-    </div>
+      <div id="external-form" class="w-full" style="{document.documentElement.lang !== 'ar' ? 'margin-left: 1%;' : ''}"></div>    </div>
   </div>
 </div>
-<script lang="ts">
-  import { onMount } from 'svelte';
-  import { t } from "svelte-i18n";
 
-  let videoSrc =
-    'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
-
-  let isMobile = false;
-
-  function updateVideoSrc() {
-    isMobile = window.matchMedia('(max-width: 768px)').matches;
-    videoSrc = isMobile
-      ? 'https://player.vimeo.com/video/1050703289?autoplay=1&muted=1&loop=1&background=1'
-      : 'https://player.vimeo.com/video/1051072213?autoplay=1&muted=1&loop=1&background=1';
-  }
-
-  onMount(() => {
-    updateVideoSrc(); // Set the initial state
-    window.addEventListener('resize', updateVideoSrc); // Update on window resize
-
-    return () => {
-      window.removeEventListener('resize', updateVideoSrc); // Clean up the event listener
-    };
-  });
-
-
-
-
-   // Add this click handler to your existing script
-   function handleBackdropClick(event: MouseEvent) {
-    const modalContainer = document.getElementById("modal-container");
-    if (event.target === modalContainer) {
-      closeModal();
-    }
-  }
-
-  function loadJotForm(formUrl: string) {
-    const loader = document.getElementById('loader');
-    const externalForm = document.getElementById("external-form");
-    
-    loader.style.display = 'flex';
-    externalForm.innerHTML = ''; // Clear previous form content
-
-    // Create iframe element
-    const iframe = document.createElement('iframe');
-    iframe.src = formUrl;
-    iframe.className = 'w-full h-[600px] border-0'; // Updated width class
-    iframe.onload = () => {
-      loader.style.display = 'none';
-    };
-
-    externalForm.appendChild(iframe);
-  }
-
-  function openModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const loader = document.getElementById('loader');
-    modalContainer.style.display = "flex";
-    loader.style.display = 'flex';
-
-    const htmlLang = document.documentElement.lang || "en";
-    const formUrl = htmlLang === "ar" 
-      ? "https://form.jotform.com/form/250276292161555" 
-      : "https://form.jotform.com/form/250276433898064";
-    
-    loadJotForm(formUrl);
-  }
-
-  function closeModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const externalForm = document.getElementById("external-form");
-    const loader = document.getElementById('loader');
-    
-    modalContainer.style.display = "none";
-    externalForm.innerHTML = ''; // Clear form content
-    loader.style.display = 'none'; // Reset loader
-  }
-</script>
 
 <style global>
 
