@@ -69,9 +69,9 @@ onMount(() => {
   ];
 </script>
 
-<section class="py-16 px-4">
+<section class="py-8 px-4">
   <div class="max-w-7xl my-auto mx-auto">
-    <h2 class="text-center text-4xl md:text-5xl font-bold text-[#0a1f44] mb-16">
+    <h2 class="text-center text-4xl md:text-5xl font-bold text-[#0a1f44] mb-8">
       {$t('partners_title')}
     </h2>
     <div dir="ltr">
@@ -86,21 +86,16 @@ onMount(() => {
         particlesToScroll={1}
       >
         {#each partners as partner}
-        <div class="carousel-item flex items-center justify-center p-6 sm:p-4">
-          <div class="logo-container">
-            <img
-              src={partner.logo}
-              alt={partner.alt}
-              class="logo-image"
-            />
+          <div class="carousel-item flex items-center justify-center p-4 sm:p-2">
+            <div class="logo-container">
+              <img src={partner.logo} alt={partner.alt} class="logo-image" />
+            </div>
           </div>
-        </div>
         {/each}
       </Carousel>
     </div>
   </div>
 </section>
-
 
 <style>
   section {
@@ -115,23 +110,23 @@ onMount(() => {
 
   .logo-container {
     display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 350px; /* Set a fixed width */
-  height: 200px; /* Set a fixed height */
-  border-radius: 8px; /* Optional: add rounded corners */
-  overflow: hidden; /* Ensure logos do not exceed the container */
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Reduced width */
+    height: 150px; /* Reduced height */
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   .logo-image {
-    max-width: 100%; /* Ensures the logo fits within the container width */
-    max-height: 100%; /* Ensures the logo fits within the container height */
-    object-fit: contain; /* Maintains aspect ratio */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     transition: transform 0.3s ease-in-out;
   }
 
   .logo-image:hover {
-    transform: scale(1.1); /* Adds a hover effect */
+    transform: scale(1.1);
   }
 
   @media (max-width: 1024px) {
@@ -140,9 +135,23 @@ onMount(() => {
     }
   }
 
+  @media (max-width: 768px) {
+    :global(.carousel) {
+      --particlesToShow: 2;
+    }
+    .logo-container {
+      width: 250px;
+      height: 120px;
+    }
+  }
+
   @media (max-width: 640px) {
     :global(.carousel) {
       --particlesToShow: 2;
+    }
+    .logo-container {
+      width: 200px;
+      height: 100px;
     }
   }
 </style>
