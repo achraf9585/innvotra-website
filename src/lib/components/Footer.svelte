@@ -1,11 +1,12 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { t } from "svelte-i18n";
 
   const currentYear = new Date().getFullYear();
 
   function loadJotForm(formUrl: string) {
-    const loader = document.getElementById('loader');
-    const externalForm = document.getElementById("external-form");
+    const loader = document.getElementById('loader-contact');
+    const externalForm = document.getElementById("external-form-contact");
     
     loader.style.display = 'flex';
     externalForm.innerHTML = ''; // Clear previous form content
@@ -21,24 +22,36 @@
     externalForm.appendChild(iframe);
   }
 
+
+
+  let langMarginStyle = '';
+
+onMount(() => {
+  const lang = document.documentElement.lang || "en";
+  langMarginStyle = lang === "ar" ? 'margin-right: 1%;' : 'margin-left: 1%;';
+});
+
   function openModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const loader = document.getElementById('loader');
-    modalContainer.style.display = "flex";
-    loader.style.display = 'flex';
+  const modalContainer = document.getElementById("modal-container-contact");
+  const loader = document.getElementById('loader-contact');
+  modalContainer.style.display = "flex";
+  loader.style.display = 'flex';
 
-    const htmlLang = document.documentElement.lang || "en";
-    const formUrl = htmlLang === "ar" 
-      ? "https://form.jotform.com/form/250277344095560" 
-      : "https://form.jotform.com/form/250276930823559";
-    
-    loadJotForm(formUrl);
-  }
+  const htmlLang = document.documentElement.lang || "en";
+  const formUrl = htmlLang === "ar" 
+  ? "https://form.jotform.com/form/250277344095560" 
+  : "https://form.jotform.com/form/250276930823559";
+  
+  loadJotForm(formUrl);
+}
 
-  function closeModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const externalForm = document.getElementById("external-form");
-    const loader = document.getElementById('loader');
+
+
+
+function closeModal() {
+    const modalContainer = document.getElementById("modal-container-contact");
+    const externalForm = document.getElementById("external-form-contact");
+    const loader = document.getElementById('loader-contact');
     
     modalContainer.style.display = "none";
     externalForm.innerHTML = ''; // Clear form content
@@ -110,24 +123,24 @@
       <ul>
 
 
-        <li>{$t('footer_product_1')}</li>
-        <li> {$t('footer_product_2')}</li>
-        <li> {$t('footer_product_3')}</li>
-        <li> {$t('footer_product_4')}</li>
-        <li> {$t('footer_product_5')}</li>
-        <li>   {$t('footer_product_6')}</li>
+       <a href="#products">  <li>{$t('footer_product_1')}</li></a> 
+       <a href="#products">      <li> {$t('footer_product_2')}</li></a> 
+        <a href="#products">  <li> {$t('footer_product_3')}</li></a> 
+          <a href="#products">  <li> {$t('footer_product_4')}</li></a> 
+            <a href="#products">  <li> {$t('footer_product_5')}</li></a> 
+              <a href="#products">   <li>   {$t('footer_product_6')}</li></a> 
       </ul>
     </div>
 
     <div class="footer-section">
       <h3>{$t('footer_service_title')}</h3>
       <ul> 
-        <li>{$t('footer_service_1')}</li>
-        <li> {$t('footer_service_2')}</li>
-        <li> {$t('footer_service_3')}</li>
-        <li> {$t('footer_service_4')}</li>
-        <li> {$t('footer_service_5')}</li>
-        <li>   {$t('footer_service_6')}</li>
+        <a href="#services"> <li>{$t('footer_service_1')}</li></a> 
+          <a href="#services">   <li> {$t('footer_service_2')}</li></a> 
+            <a href="#services">   <li> {$t('footer_service_3')}</li></a> 
+              <a href="#services">   <li> {$t('footer_service_4')}</li></a> 
+                <a href="#services">   <li> {$t('footer_service_5')}</li></a> 
+                  <a href="#services">    <li>   {$t('footer_service_6')}</li></a> 
 
      
       </ul>
@@ -173,29 +186,49 @@
 
 
 
-<!-- Single Modal Container -->
+<!-- Modal -->
+<!-- Modal container -->
 <div
-  id="modal-container"
-  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+  id="modal-container-contact"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
+  style="display: none;"
+  role="dialog"
+  aria-modal="true"
 >
-  <div class="bg-white rounded-xl p-8 w-11/12 md:w-1/2 relative">
-    <h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
-      {$t('modal_contact_us')}
-    </h2>
-    <div
-      id="loader"
-      class="flex items-center justify-center mb-4"
-      style="display: none;"
-    >
-      <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+<div class="relative mx-4 w-full max-w-2xl">
+  <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+    <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+      <!-- Logo and Text in the Center -->
+      <div class="flex items-center justify-center w-full">
+        <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
+        <span class="text-2xl text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
+          {$t('modal_contact_us')}  <!-- Dynamic title key -->
+        </span>
+      </div>
+      
+      <!-- Close Button -->
+      <button
+        on:click={closeModal}
+        class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
     </div>
-    <div id="external-form"></div>
-    <button
-      class="absolute top-4 right-4 text-gray-700 hover:text-black"
-      on:click={closeModal}
-    >
-      ✕
-    </button>
+
+      <div
+        id="loader-contact"
+        class="flex h-32 items-center justify-center"
+        style="display: none;"
+      >
+        <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
+      </div>
+
+      <div id="external-form-contact" class="w-full h-3/4" style={langMarginStyle}></div>
+    
+    </div>
   </div>
 </div>
 </footer>

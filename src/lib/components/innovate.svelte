@@ -1,13 +1,14 @@
 
 
 <script lang="ts">
+  import { onMount } from "svelte";
       import {  t} from "svelte-i18n";
     export let text = '';
     export let href = '#';
 
     function loadJotForm(formUrl: string) {
-    const loader = document.getElementById('loader');
-    const externalForm = document.getElementById("external-form");
+    const loader = document.getElementById('loader-innovate-innoate');
+    const externalForm = document.getElementById("external-form-innovate-innovate");
     
     loader.style.display = 'flex';
     externalForm.innerHTML = ''; // Clear previous form content
@@ -23,29 +24,40 @@
     externalForm.appendChild(iframe);
   }
 
-  function openModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const loader = document.getElementById('loader');
-    modalContainer.style.display = "flex";
-    loader.style.display = 'flex';
+  let langMarginStyle = '';
 
-    const htmlLang = document.documentElement.lang || "en";
-    const formUrl = htmlLang === "ar" 
-      ? "https://form.jotform.com/form/250276292161555" 
-      : "https://form.jotform.com/form/250276433898064";
-    
-    loadJotForm(formUrl);
-  }
+onMount(() => {
+  const lang = document.documentElement.lang || "en";
+  langMarginStyle = lang === "ar" ? 'margin-right: 1%;' : 'margin-left: 1%;';
+});
 
-  function closeModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const externalForm = document.getElementById("external-form");
-    const loader = document.getElementById('loader');
+
+
+function openModal() {
+  const modalContainer = document.getElementById("modal-container-innovate");
+  const loader = document.getElementById('loader-innovate');
+  modalContainer.style.display = "flex";
+  loader.style.display = 'flex';
+
+  const htmlLang = document.documentElement.lang || "en";
+  const formUrl = htmlLang === "ar" 
+    ? "https://form.jotform.com/form/250276311925555" 
+    : "https://form.jotform.com/form/250277281510552";
+  
+  loadJotForm(formUrl);
+}
+
+
+function closeModal() {
+    const modalContainer = document.getElementById("modal-container-innovate");
+    const externalForm = document.getElementById("external-form-innovate");
+    const loader = document.getElementById('loader-innovate');
     
     modalContainer.style.display = "none";
     externalForm.innerHTML = ''; // Clear form content
     loader.style.display = 'none'; // Reset loader
   }
+
   </script>
   
 
@@ -67,37 +79,50 @@
     </div>
 
 
-        <!-- Modal -->
+<!-- Modal -->
+<!-- Modal container -->
 <div
-id="modal-container"
-class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+  id="modal-container-innovate"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
+  style="display: none;"
+  role="dialog"
+  aria-modal="true"
 >
-<div class="bg-white rounded-xl p-8 w-11/12 md:w-1/2 relative">
-  <!-- Modal Title -->
-  <h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
-    {$t('modal_innovate')}
-  </h2>
+<div class="relative mx-4 w-full max-w-2xl">
+  <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+    <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+      <!-- Logo and Text in the Center -->
+      <div class="flex items-center justify-center w-full">
+        <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
+        <span class="text-2xl text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
+          {$t('modal_innovate')}  <!-- Dynamic title key -->
+        </span>
+      </div>
+      
+      <!-- Close Button -->
+      <button
+        on:click={closeModal}
+        class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
 
-  <!-- Loader -->
-  <div
-    id="loader"
-    class="flex items-center justify-center mb-4"
-    style="display: none;"
-  >
-    <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      <div
+        id="loader-innovate"
+        class="flex h-32 items-center justify-center"
+        style="display: none;"
+      >
+        <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
+      </div>
+
+      <div id="external-form-innovate" class="w-full h-3/4" style={langMarginStyle}></div>
+    
+    </div>
   </div>
-
-  <!-- External Form -->
-  <div id="external-form"></div>
-
-  <!-- Close Button -->
-  <button
-    class="absolute top-4 right-4 text-gray-700 hover:text-black"
-    on:click={closeModal}
-    >
-    ✕
-  </button>
-</div>
 </div>
   </section>
 

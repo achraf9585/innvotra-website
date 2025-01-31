@@ -42,8 +42,8 @@ onMount(() => {
   }
 
   function loadJotForm(formUrl: string) {
-    const loader = document.getElementById('loader');
-    const externalForm = document.getElementById("external-form");
+    const loader = document.getElementById('loader-innovate');
+    const externalForm = document.getElementById("external-form-innovate");
     
     loader.style.display = 'flex';
     externalForm.innerHTML = ''; // Clear previous form content
@@ -59,24 +59,37 @@ onMount(() => {
     externalForm.appendChild(iframe);
   }
 
-  function openModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const loader = document.getElementById('loader');
-    modalContainer.style.display = "flex";
-    loader.style.display = 'flex';
 
+  function openModal() {
+  const modalContainer = document.getElementById("modal-container-innovate");
+  const loader = document.getElementById('loader-innovate');
+  modalContainer.style.display = "flex";
+  loader.style.display = 'flex';
+
+  const htmlLang = document.documentElement.lang || "en";
+  const formUrl = htmlLang === "ar" 
+    ? "https://form.jotform.com/form/250276311925555" 
+    : "https://form.jotform.com/form/250277281510552";
+  
+  loadJotForm(formUrl);
+}
+
+
+
+  // Update the hero button handler
+  function handleHeroButtonClick() {
     const htmlLang = document.documentElement.lang || "en";
-    const formUrl = htmlLang === "ar" 
-      ? "https://form.jotform.com/form/250276292161555" 
-      : "https://form.jotform.com/form/250276433898064";
+    const [formUrl, titleKey] = htmlLang === "ar" 
+      ? ["https://form.jotform.com/form/250276292161555", "modal_ar_title"]
+      : ["https://form.jotform.com/form/250276433898064", "modal_en_title"];
     
-    loadJotForm(formUrl);
+    openModal();
   }
 
   function closeModal() {
-    const modalContainer = document.getElementById("modal-container");
-    const externalForm = document.getElementById("external-form");
-    const loader = document.getElementById('loader');
+    const modalContainer = document.getElementById("modal-container-innovate");
+    const externalForm = document.getElementById("external-form-innovate");
+    const loader = document.getElementById('loader-innovate');
     
     modalContainer.style.display = "none";
     externalForm.innerHTML = ''; // Clear form content
@@ -126,11 +139,11 @@ onMount(() => {
         {$t('hero_text')}
       </h1>
       <button
-        class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-8 py-3 font-sans font-sans-600 rounded-xl text-lg hover:bg-blue-700 transition-colors w-full md:w-auto"
-        on:click={openModal}
-      >
-        {$t('hero_button')}
-      </button>
+      class="bg-gradient-to-r from-[#2C5CC6] to-[#7C9ADD] text-white px-8 py-3 font-sans font-sans-600 rounded-xl text-lg hover:bg-blue-700 transition-colors w-full md:w-auto"
+      on:click={handleHeroButtonClick} 
+    >
+      {$t('hero_button')}
+    </button>
     </div>
   </div>
 </section>
@@ -138,7 +151,7 @@ onMount(() => {
 <!-- Modal -->
 <!-- Modal container -->
 <div
-  id="modal-container"
+  id="modal-container-innovate"
   class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
   style="display: none;"
   role="dialog"
@@ -150,8 +163,8 @@ onMount(() => {
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
         <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
-        <span class="text-2xl  text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
-          {$t('modal_innovate')}
+        <span class="text-2xl text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
+          {$t('modal_innovate')}  <!-- Dynamic title key -->
         </span>
       </div>
       
@@ -168,14 +181,14 @@ onMount(() => {
     </div>
 
       <div
-        id="loader"
+        id="loader-innovate"
         class="flex h-32 items-center justify-center"
         style="display: none;"
       >
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form" class="w-full h-3/4" style={langMarginStyle}></div>
+      <div id="external-form-innovate" class="w-full h-3/4" style={langMarginStyle}></div>
     
     </div>
   </div>
