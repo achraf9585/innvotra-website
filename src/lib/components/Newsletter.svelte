@@ -1,21 +1,18 @@
 <script>
-  import { t } from "svelte-i18n";
-
-  let email = '';
-  let successMessage = ''; // To store the success message
-
-  function handleSubmit() {
-      console.log('Subscribing email:', email);
-      successMessage = ' user subscribed successfully '
-      // Set success message
-      email = ''; // Clear the email field
-
-      // Optionally, clear the success message after a delay
-      setTimeout(() => {
-          successMessage = '';
-      }, 5000); // Clear after 5 seconds
-  }
-</script>
+    import { t, locale } from "svelte-i18n";
+  
+    let email = '';
+    let successMessage = '';
+  
+    function handleSubmit() {
+        successMessage = 'subscription_success'; // Translation key
+        email = '';
+        
+        setTimeout(() => {
+            successMessage = '';
+        }, 5000);
+    }
+  </script>
 
 <section class="newsletter-section rounded-3xl mx-auto py-20 mb-20">
   <div class="absolute top-0 h-full w-full" 
@@ -57,10 +54,10 @@
 
       <!-- Success Message -->
       {#if successMessage}
-          <div class="mt-4 bg-green-500 text-white p-3 rounded-md w-full sm:w-auto text-center">
-              {successMessage}
-          </div>
-      {/if}
+      <div class="mt-4 bg-green-500 text-white p-3 rounded-md w-full sm:w-auto text-center">
+          {$t(successMessage)} 
+      </div>
+    {/if}
   </div>
 </section>
 

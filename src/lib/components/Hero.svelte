@@ -24,6 +24,13 @@
   });
 
 
+  let langMarginStyle = '';
+
+onMount(() => {
+  const lang = document.documentElement.lang || "en";
+  langMarginStyle = lang === "ar" ? 'margin-right: 1%;' : 'margin-left: 1%;';
+});
+
 
 
    // Add this click handler to your existing script
@@ -159,7 +166,9 @@
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form" class="w-full" style="{document.documentElement.lang !== 'ar' ? 'margin-left: 1%;' : ''}"></div>    </div>
+      <div id="external-form" class="w-full" style={langMarginStyle}></div>
+    
+    </div>
   </div>
 </div>
 
