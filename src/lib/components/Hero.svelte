@@ -150,7 +150,7 @@ onMount(() => {
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
         <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
-        <span class="text-2xl font-semibold text-gray-800">
+        <span class="text-2xl  font-[Trebuchet_MS] text-[#2c5cc6]">
           {$t('modal_innovate')}
         </span>
       </div>
