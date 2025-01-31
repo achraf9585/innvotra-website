@@ -146,17 +146,26 @@ onMount(() => {
 >
 <div class="relative mx-4 w-full max-w-2xl">
   <div class="relative rounded-xl bg-white p-8 shadow-2xl">
-      <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
-        <button
-          on:click={closeModal}
-          class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
-          aria-label="Close modal"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+    <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+      <!-- Logo and Text in the Center -->
+      <div class="flex items-center justify-center w-full">
+        <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
+        <span class="text-3xl font-semibold text-gray-800">
+          {$t('modal_innovate')}
+        </span>
       </div>
+      
+      <!-- Close Button -->
+      <button
+        on:click={closeModal}
+        class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
 
       <div
         id="loader"
@@ -166,7 +175,7 @@ onMount(() => {
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form" class="w-full" style={langMarginStyle}></div>
+      <div id="external-form" class="w-full h-3/4" style={langMarginStyle}></div>
     
     </div>
   </div>
