@@ -7,7 +7,7 @@
     export let href = '#';
 
     function loadJotForm(formUrl: string) {
-    const loader = document.getElementById('loader-innovate-innoate');
+    const loader = document.getElementById('loader-innovate-innovate');
     const externalForm = document.getElementById("external-form-innovate-innovate");
     
     loader.style.display = 'flex';
@@ -34,8 +34,8 @@ onMount(() => {
 
 
 function openModal() {
-  const modalContainer = document.getElementById("modal-container-innovate");
-  const loader = document.getElementById('loader-innovate');
+  const modalContainer = document.getElementById("modal-container-innovate-innovate");
+  const loader = document.getElementById('loader-innovate-innovate');
   modalContainer.style.display = "flex";
   loader.style.display = 'flex';
 
@@ -49,9 +49,9 @@ function openModal() {
 
 
 function closeModal() {
-    const modalContainer = document.getElementById("modal-container-innovate");
-    const externalForm = document.getElementById("external-form-innovate");
-    const loader = document.getElementById('loader-innovate');
+    const modalContainer = document.getElementById("modal-container-innovate-innovate");
+    const externalForm = document.getElementById("external-form-innovate-innovate");
+    const loader = document.getElementById('loader-innovate-innovate');
     
     modalContainer.style.display = "none";
     externalForm.innerHTML = ''; // Clear form content
@@ -82,7 +82,7 @@ function closeModal() {
 <!-- Modal -->
 <!-- Modal container -->
 <div
-  id="modal-container-innovate"
+  id="modal-container-innovate-innovate"
   class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
   style="display: none;"
   role="dialog"
@@ -112,14 +112,14 @@ function closeModal() {
     </div>
 
       <div
-        id="loader-innovate"
+        id="loader-innovate-innovate"
         class="flex h-32 items-center justify-center"
         style="display: none;"
       >
         <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form-innovate" class="w-full h-3/4" style={langMarginStyle}></div>
+      <div id="external-form-innovate-innovate" class="w-full h-3/4" style={langMarginStyle}></div>
     
     </div>
   </div>
