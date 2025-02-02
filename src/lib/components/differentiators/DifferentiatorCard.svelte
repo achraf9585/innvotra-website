@@ -33,12 +33,11 @@
     {#if values.length > 0}
       <div class="space-y-4">
         {#each values as value}
-          <div>
-            <span class="font-semibold">{currentLocale === 'ar' ? value.titleAr : value.title}</span>
-            <span class="text-gray-300">  
-            </span>
-          </div>
-        {/each}
+        <div class="text-center">
+          <span class="font-semibold">{currentLocale === 'ar' ? value.titleAr : value.title}</span>
+        </div>
+      {/each}
+      
       </div>
     {/if}
   </div>
