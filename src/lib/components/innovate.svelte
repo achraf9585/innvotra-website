@@ -41,8 +41,8 @@ function openModal() {
 
   const htmlLang = document.documentElement.lang || "en";
   const formUrl = htmlLang === "ar" 
-    ? "https://form.jotform.com/form/250276311925555" 
-    : "https://form.jotform.com/form/250277281510552";
+    ? "https://form.jotform.com/form/250276292161555" 
+    : "https://form.jotform.com/form/250276433898064";
   
   loadJotForm(formUrl);
 }
