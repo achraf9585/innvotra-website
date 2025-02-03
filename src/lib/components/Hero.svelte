@@ -59,8 +59,14 @@ onMount(() => {
     externalForm.appendChild(iframe);
   }
 
-
+  let scrollPosition = 0;
   function openModal() {
+     // Lock body scroll
+  scrollPosition = window.pageYOffset;
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
   const modalContainer = document.getElementById("modal-container-innovate");
   const loader = document.getElementById('loader-innovate');
   modalContainer.style.display = "flex";
@@ -87,6 +93,13 @@ onMount(() => {
   }
 
   function closeModal() {
+
+      // Restore body scroll
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollPosition);
     const modalContainer = document.getElementById("modal-container-innovate");
     const externalForm = document.getElementById("external-form-innovate");
     const loader = document.getElementById('loader-innovate');
@@ -152,14 +165,20 @@ onMount(() => {
 <!-- Modal container -->
 <div
   id="modal-container-innovate"
-  class="hidden fixed inset-0 z-50 flex items-center justify-center w-full bg-black/50"
-  style="display: none;"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center w-full bg-black/50 overflow-y-auto"
+  style="display: none; touch-action: none; -webkit-overflow-scrolling: touch;"
   role="dialog"
   aria-modal="true"
+  on:touchstart|preventDefault
+  on:touchmove|preventDefault
 >
-  <div class="relative mx-4 w-full max-w-2xl max-h-[90vh]"> <!-- Added max-height -->
-    <div class="relative rounded-xl bg-white p-6 shadow-2xl h-full overflow-y-auto">
-      <div class="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
+<div 
+class="relative mx-4 w-full max-w-2xl max-h-[90vh]"
+style="touch-action: auto;"
+> 
+
+<div class="relative rounded-xl bg-white p-6 shadow-2xl overflow-y-auto">
+        <div class="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
         <!-- Logo and Text -->
         <div class="flex items-center justify-center w-full">
           <img src="/images/icon.png" alt="Logo" class="w-8 h-8 mr-2" />
