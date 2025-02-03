@@ -22,7 +22,7 @@
 
 <style>
   .product-card {
-    min-height: 300px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
