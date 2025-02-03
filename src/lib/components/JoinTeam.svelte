@@ -55,7 +55,7 @@ function closeModal() {
 }
 </script>
 
-<section class="py-20 bg-blue-50 relative overflow-hidden" >
+<section class="py-20 bg-blue-50 relative overflow-hidden">
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-10">
     <div 
@@ -93,7 +93,7 @@ function closeModal() {
   role="dialog"
   aria-modal="true"
 >
-<div class="relative mx-4 w-full max-w-2xl h-[80%]">
+<div class="relative mx-4 w-full max-w-2xl">
   <div class="relative rounded-xl bg-white p-8 shadow-2xl">
     <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
       <!-- Logo and Text in the Center -->

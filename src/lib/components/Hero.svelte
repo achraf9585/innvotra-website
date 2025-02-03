@@ -59,27 +59,18 @@ onMount(() => {
     externalForm.appendChild(iframe);
   }
 
-  let scrollPosition = 0;
-
 
   function openModal() {
   const modalContainer = document.getElementById("modal-container-innovate");
-  const loader = document.getElementById("loader-innovate");
-
-  scrollPosition = window.scrollY; // Store the current scroll position
-  document.documentElement.style.scrollBehavior = "auto"; // Disable smooth scrolling
-  document.body.style.top = `-${scrollPosition}px`; // Prevent scrolling
-  document.body.style.position = "fixed"; // Fix the body position
-  document.body.style.width = "100%";
-
+  const loader = document.getElementById('loader-innovate');
   modalContainer.style.display = "flex";
-  loader.style.display = "flex";
+  loader.style.display = 'flex';
 
   const htmlLang = document.documentElement.lang || "en";
   const formUrl = htmlLang === "ar" 
     ? "https://form.jotform.com/form/250276292161555" 
     : "https://form.jotform.com/form/250276433898064";
-
+  
   loadJotForm(formUrl);
 }
 
@@ -96,19 +87,14 @@ onMount(() => {
   }
 
   function closeModal() {
-  const modalContainer = document.getElementById("modal-container-innovate");
-  const externalForm = document.getElementById("external-form-innovate");
-  const loader = document.getElementById("loader-innovate");
-
-  modalContainer.style.display = "none";
-  externalForm.innerHTML = ""; // Clear form content
-  loader.style.display = "none";
-
-  document.body.style.position = ""; // Restore scrolling
-  document.body.style.top = "";
-  window.scrollTo(0, scrollPosition); // Restore the original scroll position
-  document.documentElement.style.scrollBehavior = ""; // Restore smooth scrolling
-}
+    const modalContainer = document.getElementById("modal-container-innovate");
+    const externalForm = document.getElementById("external-form-innovate");
+    const loader = document.getElementById('loader-innovate');
+    
+    modalContainer.style.display = "none";
+    externalForm.innerHTML = ''; // Clear form content
+    loader.style.display = 'none'; // Reset loader
+  }
 </script>
 <section class="relative h-screen w-full overflow-hidden">
   {#if isMobile}
@@ -166,61 +152,50 @@ onMount(() => {
 <!-- Modal container -->
 <div
   id="modal-container-innovate"
-  class="hidden fixed inset-0 z-50 flex items-center justify-center w-full bg-black/50 overflow-y-auto"
-  style="display: none; touch-action: none; -webkit-overflow-scrolling: touch;"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
+  style="display: none;"
   role="dialog"
   aria-modal="true"
-
 >
-<div 
-class="relative mx-4 w-full max-w-2xl max-h-[90vh]"
-
-> 
-
-<div class="relative rounded-xl bg-white p-6 shadow-2xl overflow-y-auto">
-        <div class="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
-        <!-- Logo and Text -->
-        <div class="flex items-center justify-center w-full">
-          <img src="/images/icon.png" alt="Logo" class="w-8 h-8 mr-2" />
-          <span class="text-xl text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
-            {$t('modal_innovate')}
-          </span>
-        </div>
-        
-        <!-- Close Button -->
-        <button
-          on:click={closeModal}
-          class="text-gray-400 hover:text-gray-500 transition-colors ml-2"
-          aria-label="Close modal"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+<div class="relative mx-4 w-full max-w-2xl">
+  <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+    <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+      <!-- Logo and Text in the Center -->
+      <div class="flex items-center justify-center w-full">
+        <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
+        <span class="text-2xl text-[#2c5cc6]" style="font-family: 'Trebuchet MS', sans-serif;">
+          {$t('modal_innovate')}  <!-- Dynamic title key -->
+        </span>
       </div>
+      
+      <!-- Close Button -->
+      <button
+        on:click={closeModal}
+        class="text-gray-400 hover:text-gray-500 transition-colors ml-auto"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
 
       <div
         id="loader-innovate"
-        class="flex h-24 items-center justify-center"
+        class="flex h-32 items-center justify-center"
         style="display: none;"
       >
-        <div class="h-8 w-8 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
+        <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"/>
       </div>
 
-      <div id="external-form-innovate" class="w-full h-[500px] md:h-[600px]" style={langMarginStyle}></div>
+      <div id="external-form-innovate" class="w-full h-3/4" style={langMarginStyle}></div>
+    
     </div>
   </div>
 </div>
 
 
 <style global>
-
-#external-form-innovate {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  max-height: 80vh; /* Adjust height as needed */
-}
-
 
 
 #external-form {
@@ -229,7 +204,7 @@ class="relative mx-4 w-full max-w-2xl max-h-[90vh]"
 
   #modal-container iframe {
     width: 100% !important;
-    min-height: 100px;
+    min-height: 300px;
     @apply rounded-lg;
   }
 
