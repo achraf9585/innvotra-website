@@ -61,14 +61,10 @@ onMount(() => {
 
   let scrollPosition = 0;
   function openModal() {
-     // Lock body scroll
-  scrollPosition = window.pageYOffset;
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.width = '100%';
   const modalContainer = document.getElementById("modal-container-innovate");
   const loader = document.getElementById('loader-innovate');
+
+  document.body.style.overflow = "hidden"; // Prevent background scrolling
   modalContainer.style.display = "flex";
   loader.style.display = 'flex';
 
@@ -76,10 +72,9 @@ onMount(() => {
   const formUrl = htmlLang === "ar" 
     ? "https://form.jotform.com/form/250276292161555" 
     : "https://form.jotform.com/form/250276433898064";
-  
+
   loadJotForm(formUrl);
 }
-
 
 
   // Update the hero button handler
@@ -93,21 +88,15 @@ onMount(() => {
   }
 
   function closeModal() {
+  document.body.style.overflow = ""; // Restore background scrolling
+  const modalContainer = document.getElementById("modal-container-innovate");
+  const externalForm = document.getElementById("external-form-innovate");
+  const loader = document.getElementById('loader-innovate');
 
-      // Restore body scroll
-  document.body.style.overflow = '';
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.width = '';
-  window.scrollTo(0, scrollPosition);
-    const modalContainer = document.getElementById("modal-container-innovate");
-    const externalForm = document.getElementById("external-form-innovate");
-    const loader = document.getElementById('loader-innovate');
-    
-    modalContainer.style.display = "none";
-    externalForm.innerHTML = ''; // Clear form content
-    loader.style.display = 'none'; // Reset loader
-  }
+  modalContainer.style.display = "none";
+  externalForm.innerHTML = ''; // Clear form content
+  loader.style.display = 'none';
+}
 </script>
 <section class="relative h-screen w-full overflow-hidden">
   {#if isMobile}
@@ -169,12 +158,11 @@ onMount(() => {
   style="display: none; touch-action: none; -webkit-overflow-scrolling: touch;"
   role="dialog"
   aria-modal="true"
-  on:touchstart|preventDefault
-  on:touchmove|preventDefault
+
 >
 <div 
 class="relative mx-4 w-full max-w-2xl max-h-[90vh]"
-style="touch-action: auto;"
+
 > 
 
 <div class="relative rounded-xl bg-white p-6 shadow-2xl overflow-y-auto">
@@ -214,6 +202,13 @@ style="touch-action: auto;"
 
 
 <style global>
+
+#external-form-innovate {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 80vh; /* Adjust height as needed */
+}
+
 
 
 #external-form {
