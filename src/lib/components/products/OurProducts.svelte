@@ -33,7 +33,7 @@
       {
         id:4,
         title: 'DocsChain - Digital Notarization',
-        titleAr:' توثيق رقمي باستخدام تقنية سلسلة الكتل "البلوك تشين" ',
+        titleAr:' دوك تشين - التوثيق الرقمي  ',
         descriptionAr: 'كحل مبتكر لإدارة المستندات يعزز الأمان والشفافية والكفاءة باستخدام تقنية البلوك تشين والعقود الذكية. نحول المستندات العادية إلى مستندات ذكية، مما يتيح أتمتة العمليات وضمان الامتثال، مع تقليل التكاليف والمخاطر، وتحقيق كفاءة تشغيلية عالية في مختلف الصناعات',
         description: 'We offer a transformative approach to document management by enhancing security, transparency, and efficiency. Leveraging Blockchain features, organizations can create more robust systems for managing digital documents, ensuring integrity and compliance while reducing costs and risks. Our blockchain document management turns normal documents into smart document, providing significant benefits across various industries. By leveraging the capabilities of blockchain and smart contracts, our clints can automate processes and ensure compliance, ultimately leading to improved operational effectiveness. Our smart documents product is growing, providing innovative solutions across business in multiple industries. To transform the way organizations manages documents in a transformational innovative approach.',
         icon: '/icons/smart-contracts.png'

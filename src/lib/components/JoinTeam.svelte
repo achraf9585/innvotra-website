@@ -55,7 +55,7 @@ function closeModal() {
 }
 </script>
 
-<section class="py-20 bg-blue-50 relative overflow-hidden" id="contactUs">
+<section class="py-20 bg-blue-50 relative overflow-hidden" >
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-10">
     <div 
