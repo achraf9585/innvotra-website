@@ -59,14 +59,18 @@ onMount(() => {
     externalForm.appendChild(iframe);
   }
 
-  let scrollPosition = 0;
   function openModal() {
   const modalContainer = document.getElementById("modal-container-innovate");
-  const loader = document.getElementById('loader-innovate');
+  const loader = document.getElementById("loader-innovate");
 
-  document.body.style.overflow = "hidden"; // Prevent background scrolling
+  scrollPosition = window.scrollY; // Store the current scroll position
+  document.documentElement.style.scrollBehavior = "auto"; // Disable smooth scrolling
+  document.body.style.top = `-${scrollPosition}px`; // Prevent scrolling
+  document.body.style.position = "fixed"; // Fix the body position
+  document.body.style.width = "100%";
+
   modalContainer.style.display = "flex";
-  loader.style.display = 'flex';
+  loader.style.display = "flex";
 
   const htmlLang = document.documentElement.lang || "en";
   const formUrl = htmlLang === "ar" 
@@ -75,6 +79,7 @@ onMount(() => {
 
   loadJotForm(formUrl);
 }
+
 
 
   // Update the hero button handler
@@ -88,14 +93,18 @@ onMount(() => {
   }
 
   function closeModal() {
-  document.body.style.overflow = ""; // Restore background scrolling
   const modalContainer = document.getElementById("modal-container-innovate");
   const externalForm = document.getElementById("external-form-innovate");
-  const loader = document.getElementById('loader-innovate');
+  const loader = document.getElementById("loader-innovate");
 
   modalContainer.style.display = "none";
-  externalForm.innerHTML = ''; // Clear form content
-  loader.style.display = 'none';
+  externalForm.innerHTML = ""; // Clear form content
+  loader.style.display = "none";
+
+  document.body.style.position = ""; // Restore scrolling
+  document.body.style.top = "";
+  window.scrollTo(0, scrollPosition); // Restore the original scroll position
+  document.documentElement.style.scrollBehavior = ""; // Restore smooth scrolling
 }
 </script>
 <section class="relative h-screen w-full overflow-hidden">
