@@ -59,6 +59,9 @@ onMount(() => {
     externalForm.appendChild(iframe);
   }
 
+  let scrollPosition = 0;
+
+
   function openModal() {
   const modalContainer = document.getElementById("modal-container-innovate");
   const loader = document.getElementById("loader-innovate");
