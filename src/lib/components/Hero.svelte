@@ -150,6 +150,7 @@ onMount(() => {
 
 <!-- Modal -->
 <!-- Modal container -->
+<!-- Modal container -->
 <div
   id="modal-container-innovate"
   class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
@@ -157,8 +158,8 @@ onMount(() => {
   role="dialog"
   aria-modal="true"
 >
-<div class="relative mx-4 w-full max-w-2xl">
-  <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+<div class="relative mx-4 w-full max-w-2xl h-3/4">
+  <div class="relative rounded-xl bg-white p-6 shadow-2xl">
     <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
@@ -204,7 +205,7 @@ onMount(() => {
 
   #modal-container iframe {
     width: 100% !important;
-    min-height: 500px;
+    min-height: 100px;
     @apply rounded-lg;
   }
 
