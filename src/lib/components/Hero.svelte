@@ -158,7 +158,7 @@ onMount(() => {
   role="dialog"
   aria-modal="true"
 >
-<div class="relative mx-4 w-full max-w-2xl h-3/4">
+<div class="relative mx-4 w-full max-w-2xl h-[80%]">
   <div class="relative rounded-xl bg-white p-6 shadow-2xl">
     <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
       <!-- Logo and Text in the Center -->
