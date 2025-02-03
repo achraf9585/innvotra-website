@@ -33,10 +33,10 @@
   <div class="mb-6">
     <img src={icon || "/placeholder.svg"} alt={title} class="w-12 h-12" />
   </div>
-  <h3 class="text-2xl font-bold text-navy-900 mb-4">
+  <h3 class="text-xl font-bold text-navy-900 mb-4">
     {currentLocale === 'ar' ? titleAr : title}
   </h3>
-  <p class="text-gray-600 mb-6 leading-relaxed">
+  <p class="text-gray-600 text-lg mb-6 leading-relaxed">
     {#if isExpanded}
       {currentLocale === 'ar' ? descriptionAr : description}
     {:else}
