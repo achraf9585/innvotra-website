@@ -88,7 +88,7 @@ function closeModal() {
   aria-modal="true"
 >
   <div class="relative mx-4 w-full  max-w-2xl h-[80%]" >
-    <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+    <div class="relative rounded-xl  bg-white p-8 shadow-2xl">
  
         <h2 class="text-2xl font-semibold text-gray-900">{$t('modal_contact_us')}</h2>
         <button
