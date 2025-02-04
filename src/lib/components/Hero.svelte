@@ -51,7 +51,7 @@ onMount(() => {
     // Create iframe element
     const iframe = document.createElement('iframe');
     iframe.src = formUrl;
-    iframe.className = 'w-full h-[400px] border-0';
+    iframe.className = 'w-full h-[520px] border-0';
         iframe.onload = () => {
       loader.style.display = 'none';
     };
