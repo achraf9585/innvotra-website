@@ -26,20 +26,25 @@
 
   let langMarginStyle = '';
 
-onMount(() => {
-  const lang = document.documentElement.lang || "en";
-  langMarginStyle = lang === "ar" ? 'margin-right: 1%;' : 'margin-left: 1%;';
-});
-
-
-
-   // Add this click handler to your existing script
-   function handleBackdropClick(event: MouseEvent) {
+     // Add this click handler to your existing script
+     function handleBackdropClick(event: MouseEvent) {
     const modalContainer = document.getElementById("modal-container");
     if (event.target === modalContainer) {
       closeModal();
     }
   }
+
+onMount(() => {
+  
+  const lang = document.documentElement.lang || "en";
+  langMarginStyle = lang === "ar" ? 'margin-right: 1%;' : 'margin-left: 1%;';
+  document.getElementById("modal-container-innovate")?.addEventListener("click", handleBackdropClick);
+
+});
+
+
+
+
 
   function loadJotForm(formUrl: string) {
     const loader = document.getElementById('loader-innovate');
@@ -63,6 +68,8 @@ onMount(() => {
   function openModal() {
   const modalContainer = document.getElementById("modal-container-innovate");
   const loader = document.getElementById('loader-innovate');
+
+
   modalContainer.style.display = "flex";
   loader.style.display = 'flex';
 
@@ -159,7 +166,7 @@ onMount(() => {
 >
 <div class="relative mx-4 w-full max-w-2xl">
   <div class="relative rounded-xl bg-white p-8 shadow-2xl">
-    <div class="flex justify-between items-center  border-b border-gray-200">
+    <div class="flex justify-between items-center pb-4 mb-6  border-b border-gray-200">
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
         <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
@@ -197,6 +204,13 @@ onMount(() => {
 
 <style global>
 
+
+
+
+#modal-container-innovate.show {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   #modal-container-innovate .relative.rounded-xl {
     max-height: 90vh;
@@ -204,6 +218,8 @@ onMount(() => {
     display: flex;
     flex-direction: column;
   }
+  
+
   
   #external-form-innovate {
     height: 100% !important;
