@@ -51,8 +51,8 @@ onMount(() => {
     // Create iframe element
     const iframe = document.createElement('iframe');
     iframe.src = formUrl;
-    iframe.className = 'w-full h-[600px] border-0'; // Updated width class
-    iframe.onload = () => {
+    iframe.className = 'w-full h-[400px] border-0';
+        iframe.onload = () => {
       loader.style.display = 'none';
     };
 
@@ -159,7 +159,7 @@ onMount(() => {
 >
 <div class="relative mx-4 w-full max-w-2xl">
   <div class="relative rounded-xl bg-white p-8 shadow-2xl">
-    <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
+    <div class="flex justify-between items-center  border-b border-gray-200">
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
         <img src="/images/icon.png" alt="Logo" class="w-10 h-10 mr-2" />
@@ -197,7 +197,26 @@ onMount(() => {
 
 <style global>
 
-
+@media (max-width: 768px) {
+  #modal-container-innovate .relative.rounded-xl {
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #external-form-innovate {
+    height: 100% !important;
+    min-height: 400px;
+    max-height: calc(90vh - 120px); /* Account for header height */
+    overflow-y: auto;
+  }
+  
+  #modal-container-innovate iframe {
+    height: 100% !important;
+    min-height: 400px;
+  }
+}
 #external-form {
     width: 100%;
   }
