@@ -90,7 +90,7 @@ function closeModal() {
   aria-modal="true"
 >
 <div class="relative mx-4 w-full max-w-2xl h-3/4">
-  <div class="relative rounded-xl bg-white p-8 shadow-2xl">
+  <div class="relative rounded-xl bg-white p-1 shadow-2xl">
     <div class="flex justify-between items-center pb-4 mb-6 border-b border-gray-200">
       <!-- Logo and Text in the Center -->
       <div class="flex items-center justify-center w-full">
@@ -128,6 +128,15 @@ function closeModal() {
   </section>
 
   <style>
+
+#external-form-innovate-innovate {
+    height: 100% !important;
+    min-height: 400px;
+    max-height: calc(90vh - 120px); /* Account for header height */
+    overflow-y: auto;
+  }
+
+
     .button {
       display: inline-block;
       padding: 12px 24px;
