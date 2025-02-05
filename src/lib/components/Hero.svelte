@@ -159,7 +159,7 @@ onMount(() => {
 <!-- Modal container -->
 <div
   id="modal-container-innovate"
-  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50"
+  class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center w-full md:inset-0  max-h-full bg-black/50"
   style="display: none;"
   role="dialog"
   aria-modal="true"
