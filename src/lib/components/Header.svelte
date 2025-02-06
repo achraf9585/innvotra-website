@@ -63,17 +63,17 @@
       <!-- Logo -->
       <div class="flex items-start">
         <a href="/" class="text-white text-2xl font-bold">
-          <img src="/images/logo.png" alt="Logo" class="w-auto h-12" />
+          <img src="/images/logo.png" alt="Logo" class="w-auto max-h-12 " />
         </a>
       </div>
 
       <!-- Centered Desktop Menu -->
-      <div class="hidden md:flex items-center gap-10  mx-auto">
+      <div class="hidden md:flex items-center   mx-auto">
         {#each menuItems as item}
         <a
         href={item.href}
         on:click={() => isMenuOpen = false}  
-        class="block text-white hover:text-blue-400 px-6 py-2"
+        class="block text-white hover:text-blue-400 px-6 py-2 whitespace-nowrap "
       >
 
           {currentLocale === 'ar' ? item.textAr : item.text}
@@ -89,7 +89,7 @@
           on:click={toggleLanguageDropdown}
         >
           <img src={currentLanguage.flag} alt={currentLanguage.text} class="w-5 h-3 mr-2" />
-          {currentLanguage.text}
+        <span class="hidden lg:inline">  {currentLanguage.text}</span> 
           <svg
             class="w-4 h-4 ml-2"
             fill="none"
