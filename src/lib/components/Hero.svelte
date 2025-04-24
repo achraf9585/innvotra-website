@@ -103,7 +103,7 @@ onMount(() => {
     loader.style.display = 'none'; // Reset loader
   }
 </script>
-<section class="relative h-screen w-full overflow-hidden">
+<section class="relative h-screen w-full overflow-hidden" id="home">
   {#if isMobile}
     <div class="absolute inset-0">
       <!-- Vimeo Video Background for Mobile -->

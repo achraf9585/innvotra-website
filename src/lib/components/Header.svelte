@@ -47,9 +47,9 @@
   }
 
   const menuItems = [
-    { text: "Home", textAr: "الصفحة الرئيسية", href: "/" },
+    { text: "Home", textAr: "الصفحة الرئيسية", href: "#home" },
     { text: "About Us", textAr: "معلومات عنا", href: "#about" },
-    { text: "Products", textAr: "شركاؤنا و عملائنا", href: "#products" },
+    { text: "Products", textAr: "منتجاتنا ", href: "#products" },
     { text: "Services", textAr: "خدماتنا", href: "#services" },
     { text: "Contact Us", textAr: "اتصل بنا", href: "#contactUs" },
   ];
